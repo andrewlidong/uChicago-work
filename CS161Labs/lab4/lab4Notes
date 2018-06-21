@@ -1,0 +1,66 @@
+getLine :: IO String
+
+main = do
+   line <- getLine
+   putStrLn $ "Here's your input" ++ line
+Int
+simple ParsExpr :: String -> Int
+   show :: a -> String
+   fmap :: a->b-> f a -> f b
+
+simpleParseExpr
+   ArithExpr
+
+   * Mult _ _ 
+   + Plus _ _
+     Digits _ _
+
+(13*5 + 6)
+
+isWhitespace
+(-1*3 + 27)
+
+eval :: ArithExpr -> Int
+
+Lab 4: Haskell Calculator.  
+
+Recursive solutions to a problem begin with a trivial base case and then solving the recursion step.  Take, for instance, summation over a list where base case is 
+
+listSum [] = 0 
+
+and recursion step is 
+
+listSum (x:xs) = x + (listSum xs)
+
+which takes a problem and reduces it to one or more simpler cases of the problem.  
+
+Building a simple Haskell Calculator:
+We are solving a simple parsing problem for constructing a calculator that a user can submit input to.  We would like to
+
+create a data type ArithExpr to represent an expression
+Implement a function eval to evaluate the expression to a numbeer
+Implement a function simpleParsExpr to parse a string into an expression
+Use the functions eval and simpleParseExpr to read user input and using fmap parse the string into an integer and return the result.  
+
+Defining the ArithExpr Data Type
+
+should represent a constructor Number for positive or negative integers
+Addition and Multiplication operators represented by the constructors Plus and Mult.  These operators are most easily defined as a data constructor taking two arguments.  
+
+Write a function eval which evaluates an ArithExpr and outputs a number : 
+
+eval (Mult (Plus (Number 2) (Number 3)) (Plus (Number 3) (Number 2)))
+
+Parsing an ArithExpr from a string.  
+
+The input will be whitespace, *, + or digits [0-9].  To parse input we do the following: 
+
+Remove whitespace using isSpace from Data.Char
+Tokenize: break up the expression into tokens where each token is an integer (positive or negative), a plus, or a times.  You will likely want to perform this operation recursively.  The functions dropWhile, takeWhile and span in Data.List will probably be helpful.  Data.Char has isDigit which can also be helpful.  These tokens will be in a lsit.  
+Turn the tokens into an ArithExpr.  Here read is useful when applied to integers.  Thinking about arithmetic it makes sense to split the list at the operator of least precedence and recurse on the elements.  
+
+Tokens to ArithExpr.  
+
+use error "Informative Error Message"
+
+User Input can be very simple: prompt the user to input a string, take that string, apply simpleParseExpr to the string, and then output the result.  

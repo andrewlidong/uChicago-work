@@ -1,0 +1,66 @@
+import Data.Complex
+
+data Poly = Poly [(Complex Double)]
+   deriving (Show)
+--Algebraic data type Poly with type constructor Poly
+
+polyCoeffs :: Poly -> [Complex Double]
+polyCoeffs (Poly a) = a
+--Takes a data type Poly and returns only the elements
+
+polyEval :: Poly -> Complex Double -> Complex Double
+polyEval p x = sum (zipWith (*) (polyCoeffs p) (iterate (*x) 1))
+
+polyAdd :: Poly -> Poly -> Poly
+polyAdd x y
+	|length (polyCoeffs x) == length (polyCoeffs y) = Poly (zipWith (+) (polyCoeffs x) (polyCoeffs y))
+	|length (polyCoeffs x) < length (polyCoeffs y) = polyAdd (Poly (polyCoeffs x ++ [0])) y
+	|length (polyCoeffs x) > length (polyCoeffs y) = polyAdd x (Poly (polyCoeffs y ++ [0]))
+
+polyScalMult :: Poly -> Complex Double -> Poly
+polyScalMult x y = Poly (map (*y) (polyCoeffs x))
+
+polyNegate :: Poly -> Poly
+polyNegate x = polyScalMult (x) (-1)
+
+polyDiff :: Poly -> Poly -> Poly
+polyDiff x y = polyAdd x (polyNegate y)
+
+polyAbs :: Poly -> Poly
+polyAbs x = Poly (map (abs) (polyCoeffs x))
+
+polyApproxEqual :: Poly -> Poly  -> Bool
+polyApproxEqual x y 
+	|realPart (sum (polyCoeffs (polyAbs (polyDiff x y)))) < (0.0001) = True
+	|otherwise = False
+
+zeros :: [Complex Double] -> Int -> [Complex Double]
+zeros x 0 = x
+zeros x n = 0: zeros x (n-1)
+
+polyMult :: Poly -> Poly -> Poly
+polyMult x (Poly []) = Poly []
+polyMult (Poly one) (Poly two) = polyAdd (polyScalMult (Poly (zeros one (length (init two)))) (last two)) (polyMult (Poly one) (Poly (init two)))
+
+data PolyPoints = PolyPoints (Int) [Complex Double] [Complex Double]
+	deriving (Show)
+
+polyPointsEval :: Poly -> [Complex Double] -> [Complex Double]
+polyPointsEval (Poly p) [] = []
+polyPointsEval (Poly p) [] = (polyEval (Poly p) 1) : (polyPointsEval (Poly p) [])
+
+toPolyPoints :: Poly -> [Complex Double] -> PolyPoints
+toPolyPoints (Poly p) [] = PolyPoints (length(p) - 1) [] (polyPointsEval (Poly p) [])
+
+polyPointsAdd :: PolyPoints -> PolyPoints -> PolyPoints
+polyPointsAdd (PolyPoints a b c) (PolyPoints d e f)
+	| b == e = (PolyPoints a b (zipWith (+) c f))
+	| otherwise = undefined
+
+polyPointsScalMult :: PolyPoints -> (Complex Double) -> PolyPoints
+polyPointsScalMult (PolyPoints a b c) d = PolyPoints a b (map (d*) c)
+
+polyPointsMult :: PolyPoints -> PolyPoints -> PolyPoints
+polyPointsMult (PolyPoints a b c) (PolyPoints d e f)
+	|(b==e) && (a+d+1 > length (b)) = (PolyPoints (a+d) b (zipWith (*) c f))
+	|otherwise = undefined

@@ -1,0 +1,5 @@
+README Lab 3
+
+Andrew Dong
+
+In this lab, we implement a haskell calculator.  We prompt the user for input and return results for addition and multiplication and errors.  

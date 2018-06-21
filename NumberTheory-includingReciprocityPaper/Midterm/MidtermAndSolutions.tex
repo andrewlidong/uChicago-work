@@ -1,0 +1,220 @@
+\documentclass{article}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage[all]{xy}
+\usepackage{enumerate,verbatim}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.5in        %
+\textheight=9.0in       %
+\headsep=0.25in         %
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{Midterm Problems}
+\newcommand{\hmwkClass}{Number Theory}
+\newcommand{\hmwkClassInstructor}{Professor Ngo}
+\newcommand{\hmwkAuthorName}{Andrew Dong}
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{\hmwkClass\ (\hmwkClassInstructor : \hmwkTitle)}  %
+\rhead{\firstxmark}                                                     %
+\lfoot{\lastxmark}                                                      %
+\cfoot{}                                                                %
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}                          %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some tools
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   \changetext{}{+\labelLength}{}{}{}}%
+
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+\newenvironment{homeworkSection}[1]%
+  {% We put this space here to make sure we're not connected to the above.
+   % Otherwise the changetext can do funny things to the other margin
+
+   \renewcommand{\homeworkSectionName}{#1}%
+   \settowidth{\homeworkSectionLabelLength}{\homeworkSectionName}%
+   \addtolength{\homeworkSectionLabelLength}{0.25in}%
+   \changetext{}{-\homeworkSectionLabelLength}{}{}{}%
+   \subsection{\homeworkSectionName}%
+   \enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}}%
+  {\enterProblemHeader{\homeworkProblemName}%
+
+   % We put the blank space above in order to make sure this margin
+   % change doesn't happen too soon (otherwise \sectionAnswer's can
+   % get ugly about their \marginpar placement.
+   \changetext{}{+\homeworkSectionLabelLength}{}{}{}}%
+
+\newcommand{\sectionAnswer}[1]
+  {% We put this space here to make sure we're disconnected from the previous
+   % passage
+
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}%
+   \enterProblemHeader{\homeworkProblemName}\exitProblemHeader{\homeworkProblemName}%
+   \marginpar{\fbox{\homeworkSectionName}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   }%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\vspace{0.1in}\large{\textit{\hmwkClassInstructor}}\vspace{3in}}
+\date{}
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inv}{^{-1}}
+\begin{document}
+\begin{spacing}{1.1}
+\newpage
+% Uncomment the \tableofcontents and \newpage lines to get a Contents page
+% Uncomment the \setcounter line as well if you do NOT want subsections
+%       listed in Contents
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Elementary Number Theory \par}
+	\vspace{1cm}
+	{\scshape\Large Midterm Review\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Number Theory Midterm and Solutions\par}
+	\vspace{1cm}
+	{\Large\itshape Andrew Dong\par}
+	\vspace{2cm}
+
+	\vfill
+
+
+% Bottom of the page
+	Professor~Ngo \textsc{Bau Chau}
+	\\ Minh-Tam Trinh
+	\vspace{5 mm}
+	\\{\large \today\par}
+\end{titlepage}
+
+
+\clearpage
+
+\section{Math 17500: Midterm}
+
+\subsection{1.  Find all positive integers x less than 200 such that $x \equiv 1$ mod 11 and $x \equiv 9$ mod 13}
+
+Notice that gcd(11,13) = 1 which implies that the solution belongs to the congruence class
+
+$$ x \equiv 1 * 13 * a + 9 * 11 * b \text{ mod 11} * 13$$
+
+where a,b $\in$ Z satisfying 13a $\equiv$ 1 mod 11 and 
+\\11b $\equiv$ 1 mod 13.  
+\\The equation $13a \equiv 2a \equiv 1$ mod 11 has solution $a \equiv$ 6 mod 11.  
+\\The equation $11b \equiv -2b \equiv 1$ mod 13 has solution b $\equiv -7 \equiv 6$ mod 13.  
+\\Therefore, $x \equiv 13 * 6 + 9 * 11 * 6 \equiv 100$ mod 143.  
+\\In the range $0 < x < 200$, the only solution is x = 100.  
+
+
+
+\vfill
+
+\subsection{2.  Find all positive Integers less than 100 such that $x^2 \equiv 11$ mod 49}
+
+We first find the solution of the equation $x^2 - 11 \equiv x^2 - 40$ mod 7.  This equation has two solutions: $x \equiv \pm 2$ mod 7.  
+\\The solution of the equation $x^2 - 11 \equiv 0$ mod 49 then must have the form $x \equiv 2$ + 7y.  
+\\If x = 2 + 7y, we have $(2 + 7y)^2 - 11 \equiv 28y - 7$ mod 49.  This is equivalent to
+\\$4y \equiv 1$ mod 7 and 
+\\$y \equiv 2$ mod 7.  
+\\In this case $x \equiv 16$ mod 49.  
+\\If x = -2 + 7y, a similar calculation implies 
+
+\vfill
+
+\subsection{3.  Find the residue of $2^{1000} + 2^{100}$ modulo 13}
+
+\vfill
+
+\subsection{4.  Check that 2 is a primitive root modulo 13 by calculating the residue modulo 13 of all powers of 2}
+
+\vfill
+
+\subsection{5.  Find all residue classes x modulo 13 such that $x^3 \equiv 1$ mod 13}
+
+\vfill
+
+\subsection{6.  Find all residue classes x modulo 169 such that $x^3 \equiv 1$ mod 169}
+
+\vfill
+
+\subsection{7.  Prove that $(Z/5Z)^x and (Z/8z)^x$ are not isomorphic as abelian groups}
+
+\vfill
+
+\subsection{8.  Prove that $2^n + 1$ is a prime if and only if $\phi(2^n + 1) = 2^n$}
+
+\vfill
+
+\subsection{9.  Prove that $(Z/(2^{n + 1})Z)^x$ and $(Z/2^{2^n+1}Z)^x$ are not isomorphic as abelian groups} 
+
+\vfill
+
+\subsection{10.  Let p be an odd prime.  How many primitive roots modulo $p^2$ are there? Justify your answer} 
+
+\vfill
+
+\end{spacing}
+\end{document}

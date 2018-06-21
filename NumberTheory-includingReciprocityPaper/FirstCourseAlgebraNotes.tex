@@ -1,0 +1,228 @@
+\documentclass{article}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage[all]{xy}
+\usepackage{enumerate,verbatim}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.5in        %
+\textheight=9.0in       %
+\headsep=0.25in         %
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{Notes}
+\newcommand{\hmwkClass}{Abstract Algebra}
+\newcommand{\hmwkClassInstructor}{Rohit Nagpal}
+\newcommand{\hmwkAuthorName}{Andrew Dong}
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{\hmwkClass\ (\hmwkClassInstructor : \hmwkTitle)}  %
+\rhead{\firstxmark}                                                     %
+\lfoot{\lastxmark}                                                      %
+\cfoot{}                                                                %
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}                          %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some tools
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   \changetext{}{+\labelLength}{}{}{}}%
+
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+\newenvironment{homeworkSection}[1]%
+  {% We put this space here to make sure we're not connected to the above.
+   % Otherwise the changetext can do funny things to the other margin
+
+   \renewcommand{\homeworkSectionName}{#1}%
+   \settowidth{\homeworkSectionLabelLength}{\homeworkSectionName}%
+   \addtolength{\homeworkSectionLabelLength}{0.25in}%
+   \changetext{}{-\homeworkSectionLabelLength}{}{}{}%
+   \subsection{\homeworkSectionName}%
+   \enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}}%
+  {\enterProblemHeader{\homeworkProblemName}%
+
+   % We put the blank space above in order to make sure this margin
+   % change doesn't happen too soon (otherwise \sectionAnswer's can
+   % get ugly about their \marginpar placement.
+   \changetext{}{+\homeworkSectionLabelLength}{}{}{}}%
+
+\newcommand{\sectionAnswer}[1]
+  {% We put this space here to make sure we're disconnected from the previous
+   % passage
+
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}%
+   \enterProblemHeader{\homeworkProblemName}\exitProblemHeader{\homeworkProblemName}%
+   \marginpar{\fbox{\homeworkSectionName}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   }%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\vspace{0.1in}\large{\textit{\hmwkClassInstructor}}\vspace{3in}}
+\date{}
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inv}{^{-1}}
+\begin{document}
+\begin{spacing}{1.1}
+\newpage
+% Uncomment the \tableofcontents and \newpage lines to get a Contents page
+% Uncomment the \setcounter line as well if you do NOT want subsections
+%       listed in Contents
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+
+\section{Contents}
+\subsection{Groups and Subgroups}
+1. Introduction and Examples
+\\ 2. Binary Operations
+\\ 3. Isomorphic Binary Structures
+\\ 4. Groups
+\\ 5. Subgroups
+\\ 6. Cyclic Groups
+\\ 7. Generating Sets and Cayley Digraphs
+
+\subsection{Permutations, Cosets and Direct Products}
+8. Groups of Permutations
+\\ 9. Orbits, Cycles and the Alternating Groups
+\\ 10. Cosets and the Theorem of Lagrange
+\\ 11. Direct Products and Finitely Generated Abelian Groups
+\\ 12. Plane Isometries
+
+\subsection{Homomorphisms and Factor Groups}
+13. Homomorphisms
+\\ 14. Factor Groups
+\\ 15. Factor-Group Computations and Simple Groups
+\\ 16. Group Action on a Set
+\\ 17. Applications of G-Sets to Counting
+
+\subsection{Rings and Fields}
+18. Rings and Fields
+\\ 19. Integral Domains
+\\ 20. Fermat's and Euler's Theorems
+\\ 21. The Field of Quotients of an Integral Domain
+\\ 22. Rings of Polynomials
+\\ 23. Factorization of Polynomials over a Field
+\\ 24. Noncommutative Examples
+\\ 25. Ordered Rings and Fields
+
+\subsection{Ideals and Factor Rings}
+26. Homomorphisms and Factor Rings
+\\ 27. Prime and Maximal Ideals
+\\ 28. Grobner Bases for Ideals
+
+\subsection{Extension Fields}
+29. Introduction to Extension Fields
+\\ 30.   Vector Spaces
+\\ 31. Algebraic Extensions
+\\ 32. Geometric Constructions
+\\ 33. Finite Fields
+
+\subsection{Advanced Group Theory}
+34. Isomorphism Theorems
+\\ 35. Series of Groups
+\\ 36. Sylow Theorems
+\\ 37. Applications of the Sylow Theory
+\\ 38. Free Abelian Groups
+\\ 39. Free Groups
+\\ 40. Group Presentations
+
+\subsection{Groups in Topology}
+41. Simplicial Complexes and Homology Groups
+\\ 42. Computations of Homology Groups
+\\ 43. More Homology Computations and Applications
+\\ 44. Homological Algebra
+
+\subsection{Factorization}
+45. Unique Factorization Domains
+\\ 46. Euclidean Domains
+\\ 47. Gaussian Integers and Multiplicative Norms
+
+\subsection{Automorphisms and Galois Theory}
+48. Automorphisms of Fields
+\\ 49. The Isomorphism Extension Theorem
+\\ 50. Splitting Fields
+\\ 51. Seperable Extensions
+\\ 52. Totally Inseperable Extensions
+\\ 53. Galois Theory
+\\ 54. Illustrations of Galois Theory
+\\ 55. Cyclotomic Extensions
+\\ 56. Insolvability of the Quintic
+
+\subsection{Matrix Algebra}
+
+\clearpage
+
+
+\section{Basic Concepts}
+\subsection{Probability and Relative Frequency}
+P(A) = $\frac{(N(A))}{N}$ 
+\\ where N is the total number of ourcomes of the experiment and N(A) is the number of outcomes leading to the occurrence of the event A
+
+The ratio $\frac{n(A)}{n}$ is called the relative frequency of the event A.  It turns out that the relative frequencies $\frac{n(A)}{n}$ are virtually the same for large n, clustering about some constant
+\\ $P(A)\sim \frac{n(A)}{n}$
+
+
+
+etc
+
+\end{spacing}
+\end{document}

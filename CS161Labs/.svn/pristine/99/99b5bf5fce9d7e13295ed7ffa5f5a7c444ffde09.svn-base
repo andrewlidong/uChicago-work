@@ -1,0 +1,85 @@
+Lab1: Onward to Rational Strassen!  
+
+------------------------
+
+A quick note on SVN:  (hint hint this is super important)
+I guess in the future we will use git.  
+
+cd
+svn checkout andrewdong-cs161-aut-14  # gets a copy of the repository -- we only do this once
+cd andrewdong-cs161-aut-14
+svn up   # checks for any updates such as comments and grades
+mkdir lab1 # makes a directory for the new lab.  We can circumvent this using gui
+svn add lab1 # start tracking lab 1 (we have to do this even after adding in the gui)
+cd lab1 # we move into the directory to begin work.  
+emacs main.hs (or whatever, just start working in lab 1)
+svn add main.hs (add the file you're working on)
+svn commit -m "Here are some comments dude"  #pushes work to central server !!!
+
+
+Project layout:
+read this.  https://www.haskell.org/haskellwiki/How_to_write_a_Haskell_program
+
+We will need 
+1.  the main haskell source file  blah.hs
+2.  a readme preferably written in markdown text containing name, collaborators and a brief explanation of the lab.  https://daringfireball.net/projects/markdown/basics.  Damn, that's really pretty.  We should learn that as soon as we get some free time.  
+3.  License.  http://opensource.org/licenses/BSD-2-Clause is a license template. 
+
+We should implement functions that are tests.  
+
+tests = test1 && test2 && test3 && ... && testn
+
+test[n] = f [input] == [output]
+
+K.  Now for the lab.  
+
+--------------------------
+
+Polynomials and the Fast Fourier Transform
+
+In this lab we explore representations of polynomials and the Fast Fourier Transform algorithm that works with them.  
+
+Complex Numbers: 
+
+import Data.Complex
+
+the infix operator :+.  
+(:+) :: a -> a -> Complex
+
+Polynomials: 
+
+We begin by implementing the algebraic datatype Poly with type constructor Poly.  We use a list as the fundamental data structure underlying the representation.  
+
+PolyCoeffs accesses the Poly representation.  
+
+polyEval has type structure "" :: Poly -> (Complex Double) -> (Complex Double)
+
+polyAdd adds two polynomials using recursion on lists.  
+polyScalMult takes a polynomial and a scalar which then multiplies the polynomial by that scalar.  
+polyNegate negates a polynomial
+polyDiff takes the difference between two polynomials
+polyAbs takes the absolute value of all coefficients.  
+polyApproxEqual checks whether two polynomials are approximately equal.  
+polyMult multiplies polynomials.  
+
+Alternative Parameterization: 
+PolyPoints maintains two lists of x locations and y locations corresponding to the values of the polynomial, and the polynomial degree.  
+
+toPolyPoints maps a polynomial and a set of points to PolyPoints.  we use undefined for cases where the list of points is of insufficient length.  
+
+polyPointsAdd adds two polyPoints
+polyPointsScalMult provides scalar multiplication for two polyPoints
+polyPointsMult multiplies two polypoints.  
+
+A note on big O notation: 
+
+Big O notation describes the limiting behavior of a function when it tends toward infinity.  It is a member of the larger family ofo Bachmann-Landau notation or asymptotic notation.  In computer science it is used to classify algorithms by how they respond to changes in input size.  In analytic number theory it is used to estimate the error committed while replacing the asymptotic size.  Big O notation characterizes functions according to their growth rates: different functions with the same growth rate may be represented using the same O notation.  The letter O is used because the growth rate of a function is also referred to as order of the function.  Big O notation usually provides an upper bound on the growth rate of the function.  
+
+The function toPolyPoints is O(n^2).  In order to get the a function that is O(nlogn) we pick points to be nth roots of unity.  
+
+fft is an algorithm for polynomials with 2^n.  It returns undefined if the length of the input is wrong.  The outoput is the type PolyPointsFFT.  toPolyPoints uses fft to get PolyPointsFFT from Poly.  
+polyPad ensures the underlying list of the polynomial is a power of 2.  
+invfft moves PolyPointsFFT back to Poly.  We will write a test which ensures that fft and invfft invert each other.  
+polyMultFFT employs the fft algorithm to quickly multiply polynomials.  polyPad is used for padding.  
+
+For Extra Credit, we extend the definition of fft to handle sequences of any length

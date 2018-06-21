@@ -1,0 +1,212 @@
+ \documentclass{pset}
+
+\newcommand{\vect}[1]{\vec{#1}}
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{2ex}
+\usepackage{geometry}               
+\geometry{letterpaper}                 
+%\geometry{landscape}                
+\usepackage[parfill]{parskip}   
+\usepackage{graphicx}
+\usepackage{hyperref}
+%these aren't necessary because we're in an ams environment, but for completeness
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+%mathbb
+\newcommand{\cof}{\mathrm{cof}}
+\newcommand{\fp}{\mathbb{F}_p}
+\newcommand{\fpn}{\mathbb{F}_{p^n}}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Rn}{{\mathbb R}^n}
+\newcommand{\Rm}{{\mathbb R}^m}
+\newcommand{\al}{\alpha}
+\newcommand{\cc}{\subset\subset}
+
+%letters
+\newcommand{\e}{\varepsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\Ph}{\varPhi}
+
+\newcommand{\g}{\gamma}
+\newcommand\limn{\lim\limits_{n \to \infty}}
+\newcommand\limsupn{\limsup\limits_{n \to \infty}}
+\newcommand\limt{\lim\limits_{t \to 0}}
+%some text
+\newcommand{\card}{\text{card}}
+\newcommand{\image}{\text{image}}
+\newcommand{\coker}{\text{coker}}
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand{\t}{\mathrm}
+\newcommand{\Gal}{\mathrm{Gal}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\rad}{\mathrm{rad}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\spn}{\mathrm{span}}
+\newcommand{\tab}{\hspace*{2em}}
+%Various things you might want%
+
+
+\theoremstyle{definition}\newtheorem*{defn}{Definition}
+\theoremstyle{definition}\newtheorem*{eg}{Example}
+\theoremstyle{theorem}\newtheorem{prop}{Proposition}
+\theoremstyle{definition}\newtheorem{ex}{Exercise}
+\theoremstyle{definition}\newtheorem*{question}{Question}
+\theoremstyle{definition}\newtheorem*{answer}{Answer}
+
+\theoremstyle{definition}\newtheorem*{oproblem}{Open Problem}
+\theoremstyle{theorem}\newtheorem{thm}{Theorem}
+\theoremstyle{theorem}\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}\newtheorem*{remark}{Remark}
+\theoremstyle{definition}\newtheorem*{observation}{Observation}
+\theoremstyle{definition}\newtheorem*{aside}{Aside}
+\theoremstyle{definition}\newtheorem*{hint}{Hint}
+\theoremstyle{theorem}\newtheorem*{cor}{Corollary}
+
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+
+\newcommand{\into} {\hookrightarrow}
+\newcommand {\onto} {\twoheadrightarrow}
+\newcommand{\ip}[2]{\langle#1,#2\rangle}
+\newcommand{\p}{\partial}
+\newcommand{\pa}[2]{\frac{\p#1}{\p#2}}
+\newcommand{\pat}[3]{\frac{\p^2#1}{\p#2\p#3}}
+\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\id}{\mathbbold{1}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\inverse}{^{-1}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\glnc}{\text{GL}_n(\mathbb{C})}
+\newcommand{\slnc}{\text{SL}_n(\mathbb{C})}
+\newcommand{\glnr}{\text{GL}_n(\mathbb{R})}
+\newcommand{\slnr}{\text{SL}_n(\mathbb{R})}
+\newcommand{\gl}{\text{GL}}
+\newcommand{\msp}{\hspace*{.5em}}
+\newcommand{\units}{^{\times}}
+\newcommand{\sig}[3]{\sum\limits_{#1=#2}^{#3}}
+\newcommand{\Span}{\text{span}}
+\newcommand{\rep}{\text{Re }}
+\newcommand{\imp}{\text{Im }}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\bin}{\mathrm{Bin}}
+\newcommand{\wkc}{\rightharpoonup}
+
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{2ex}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+
+%all of these can be empty
+
+
+
+\student{Andrew Dong}
+\classname{pset}
+\instructor{}
+
+
+\duedates{Blah}
+\university{University of Chicago}
+\term{} 
+\psnumber{Blah}
+%\psdescr{}  
+
+
+
+\begin{document}
+\maketitle 
+
+\newpage
+% Uncomment the \tableofcontents and \newpage lines to get a Contents page
+% Uncomment the \setcounter line as well if you do NOT want subsections
+%       listed in Contents
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+
+Contents of this Study Guide:
+
+A. {Basic Concepts}
+\\ 1. Probability and Relative Frequency
+\\ 2. Rudiments of Combinatorial Analysis
+
+B. {Combination of Events}
+\\ 3. Elementary Events.  The Sample Space
+\\ 4. The Addition Law for Probabilities
+
+C. {Dependent Events}
+\\ 5. Conditional Probability
+\\ 6. Statistical Independence
+
+D. {Random Variables}
+\\ 7. Discrete and Continuous Random Variables.  Distribution Functions
+\\ 8. Mathematical Expectation
+\\ 9. Chebyshev's Inequality.  The Variance and Correlation Coefficient
+
+E. {Three Important Probability Distributions}
+\\ 10. Bernoulli Trials.  The Binomial and Poisson Distributions
+\\ 11.  The De Moivre-Laplace Theorem.  The Normal Distribution
+
+F. {Some Limit Theorems}
+\\ 12. The Law of Large Numbers
+\\ 13.  Generating Functions.  Weak Convergence of Probability Distributions
+\\ 14.  Characteristic Functions.  The Central Limit Theorem
+
+G. {Markov Chains}
+\\ 15. Transition Probabilities
+\\ 16.  Persistent and Transient States
+\\ 17.  Limiting Probabilities.  Stationary Distributions
+
+
+H. {Continuous Markov Processes}
+\\ 18.  Definitions.  The Sojourn Time
+\\ 19.  The Kolmogorov Equations
+\\ 20.  More on Limiting Probabilities.  Erlang's Formula
+
+I. {Information Theory}
+
+J. {Game Theory}
+
+K. {Branching Processes}
+
+L. {Problems of Optimal Control}
+
+\clearpage
+
+\section{ Basic Concepts }
+
+\subsection {Probability and Relative Frequency}
+
+\begin{equation}
+P(A) = \frac{(N(A))}{N}
+\end{equation}
+where N is the total number of outcomes of the experiment and N(A) is the number of outcomes leading to the occurrence of event A
+
+
+
+\end{document}
+
+
+
+
+
+

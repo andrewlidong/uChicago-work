@@ -1,0 +1,277 @@
+\documentclass[11pt]{amsart}
+
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{fixltx2e}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage[parfill]{parskip}
+%\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+\usepackage{wasysym}
+\usepackage{enumerate}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+%----------Commands----------
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% bold math lowercase
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bd}{\mathbf{d}}
+\newcommand{\be}{\mathbf{e}}
+
+\newcommand{\bg}{\mathbf{g}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\bi}{\mathbf{i}}
+\newcommand{\bj}{\mathbf{j}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bl}{\mathbf{l}}
+\newcommand{\bm}{\mathbf{m}}
+\newcommand{\bn}{\mathbf{n}}
+\newcommand{\bo}{\mathbf{o}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bs}{\mathbf{s}}
+\newcommand{\bt}{\mathbf{t}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+%% calligraphy math capitals
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+%% math frak shortcut
+\newcommand{\fk}[1]{\mathfrak{#1}}
+
+\newcommand{\exist}{\text{} \exists \text{ }}
+\newcommand{\diam}{\mathrm{diam }}
+\newcommand{\spn}[1]{\mathrm{span}\{ #1 \}}
+\newcommand\Var{{\rm Var}\,}
+\newcommand\Cov{{\rm Cov}\,}
+\newcommand\E{{\rm E}\,}
+\newcommand\Bin{{\rm Bin}\,}
+\newcommand{\grad}{\triangledown}
+
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\fg}[1]{\langle #1 \rangle}
+\newcommand{\scalefg}[1]{\left\langle #1 \right\rangle}
+
+\newcommand{\bz}{\bold{0}}
+
+
+\newcommand{\name}{Mark Perlman}
+
+\renewcommand{\bar}{\overline}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\epsilon}{\varepsilon}
+%\renewcommand{\phi}{\varphi}
+\newcommand{\Del}{\nabla}
+\newcommand{\del}{\partial}
+%\renewcommand{\emptyset}{\O}
+%\renewcommand{\symbol}{\twonotes}
+\renewcommand{\_}[1]{\underline{ #1 }}
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\gp}{\operatorname{gp}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\Geo}{\operatorname{Geo}}
+\newcommand{\Corr}{\operatorname{Corr}}
+\newcommand{\unif}{\operatorname{unif}}
+\newcommand{\syl}{\operatorname{syl}}
+\newcommand{\Syl}{\operatorname{Syl}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\stab}{\operatorname{stab}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\dive}{\operatorname{div}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Bd}{\operatorname{Bd}}
+\newcommand{\Poi}{\operatorname{Poi}}
+\newcommand{\Exp}{\operatorname{Exp}}
+\newcommand{\Diff}{\operatorname{Diff}}
+\newcommand{\Av}{\operatorname{Av}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Conv}{\operatorname{Conv}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\osc}{\operatorname{osc}}
+\newcommand{\weakto}{\rightharpoonup}
+\newcommand{\weakstarto}{\overset{\star}{\rightharpoonup}}
+\newcommand{\inject}{\hookrightarrow}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\bbone}{\mathds{1}}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+\providecommand{\nCr}[2]{\left(\begin{array}{c} #1\\#2 \end{array}\right)}
+
+%bbordermatrix = bordermatrix with square brackets
+\let\bbordermatrix\bordermatrix
+\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
+\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
+\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
+
+% add vertical spacing to matrices now by doing \begin{pmatrix}[1.5]
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
+\theoremstyle{definition}
+\newtheorem*{remark}{Remark}
+\newtheorem{ndefn}{Definition}
+\newtheorem*{defn}{Definition}
+\newtheorem{nassumption}{Assumption}
+\newtheorem*{assumption}{Assumption}
+\newtheorem{nnotation}{Notation}
+\newtheorem*{notation}{Notation}
+\newtheorem{nlemma}{Lemma}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{ntheorem}{Theorem}
+\newtheorem*{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{claim}{Claim}
+
+\newcommand{\rudinproblem}[1]{\bigskip\noindent\textbf{Rudin #1.}}
+\newcommand{\DFproblem}[1]{\bigskip\noindent\textbf{Dummit \& Foote #1.}}
+\newcommand{\Mproblem}[1]{\bigskip\noindent\textbf{Munkres #1.}}
+\newcommand{\brezisproblem}[1]{\bigskip\noindent\textbf{Brezis #1.}}
+\newcommand{\lawlerproblem}[1]{\bigskip\noindent\textbf{Lawler #1.}}
+\newcommand{\SSproblem}[1]{\bigskip\noindent\textbf{Stein and Shakarchi #1.}}
+\newcommand{\Hproblem}[1]{\bigskip\noindent\textbf{Hulek #1.}}
+\newcommand{\problem}[1]{\bigskip\noindent\textbf{Problem #1.}}

@@ -1,0 +1,39 @@
+README Lab 3
+
+Andrew Dong
+
+In CS161 homework, we were asked to write a cipher to encode text - this cipher we called rot.  I've included the code for rot below.  
+
+--Exercise9.1
+--cleartext
+rot :: Int -> String -> String
+rot n = map rotChar where
+   rotChar b
+      | isLower b = rotCase 'a' b
+      | isUpper b = rotCase 'A' b
+      | otherwise = b
+   rotCase bs b = chr (ord bs + (ord b - ord bs + n) 'mod' 26)
+
+rotStdin :: Int -> IO ()
+rotStdin n = interact (rot n)
+
+usage :: IO ()
+usage = do
+   progname <- getProgName
+   hPutStrLn stderr $ "usage:" ++ progname ++ "[n]
+   exitWith $ ExitFailure 255
+
+main :: IO ()
+main = do
+   args <- getArgs
+   case args of 
+      [] -> rotStdin 13
+      [x]
+        | x = ~"^-?[0-9]+$" -> rotStdin (read x)
+        | otherwise -> usage
+        -> usage
+
+For this lab we are essentially inverting the encryption function - that is, taking encrypted code and "decoding" it. 
+The file derot takes a ciphertext and decodes it.  
+
+Was having trouble with vindecoden.  Will be working on it over weekend.  

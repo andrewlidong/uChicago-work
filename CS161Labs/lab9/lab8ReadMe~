@@ -1,0 +1,5 @@
+Lab 8: Mancala Part Deux
+
+In this lab we will write IO to allow two players to play the game.  
+
+In it, we create a function, playMancala which prompts the player to choose a piece from a tile.  If the player is able to move, he will execute a move.  Otherwise, the game will end, at which point the winner will receive a victory notice.  

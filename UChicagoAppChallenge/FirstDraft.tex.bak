@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Mike's Artist Web App}
+\author{Mike Ess, Andrew Dong}
+
+\maketitle
+
+\begin{abstract}
+The abstract text goes here.
+\end{abstract}
+
+\section{Background}
+
+
+As a native of Los Angeles I feel that I've been around Artists my entire life.  Through living and interacting with them I've come to understand just how difficult it is for their work to gain exposure.  
+
+\vspace{5mm}
+
+For every Artist there are really only two legitimate ways of gaining public presence - either through traditional galleries or through newer virtual means.  Due to the rigid structure that galleries and their curators take, Artists are overwhelmingly looking to other methods of exposure.  The newer digital means of exposure are a far more exciting avenue to take, but traversing them comes with a great deal of uncertainty and inefficiency.    
+
+\vspace{5mm}
+
+An Artist will normally store his work in many online galleries, and in order to maintain a digital presence will have to work within each online galleries particular environment.  This is tremendously inefficient.  There are three crucial needs that Artists have which aren't currently being met.  These are: 
+\vspace{5mm}
+\\ 1.  A mobile archive to work with.  
+\\ 2.  A way to submit work from that mobile archive to multiple online galleries  
+\\ 3.  A central location that provides performance metrics for Artists.  
+
+\vspace{5mm}
+
+Deco provides all of these.  
+
+\subsection{Subsection Heading Here}
+Write your subsection text here.
+
+
+\section{Conclusion}
+Write your conclusion here.
+
+\end{document}

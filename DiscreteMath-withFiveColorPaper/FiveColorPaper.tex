@@ -1,0 +1,287 @@
+\documentclass{article}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage[all]{xy}
+\usepackage{enumerate,verbatim}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.5in        %
+\textheight=9.0in       %
+\headsep=0.25in         %
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{Five Color Theorem}
+\newcommand{\hmwkClass}{Reading Program}
+\newcommand{\hmwkClassInstructor}{Professor Simon}
+\newcommand{\hmwkAuthorName}{Andrew Dong}
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{\hmwkClass\ (\hmwkClassInstructor : \hmwkTitle)}  %
+\rhead{\firstxmark}                                                     %
+\lfoot{\lastxmark}                                                      %
+\cfoot{}                                                                %
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}                          %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some tools
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   \changetext{}{+\labelLength}{}{}{}}%
+
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+\newenvironment{homeworkSection}[1]%
+  {% We put this space here to make sure we're not connected to the above.
+   % Otherwise the changetext can do funny things to the other margin
+
+   \renewcommand{\homeworkSectionName}{#1}%
+   \settowidth{\homeworkSectionLabelLength}{\homeworkSectionName}%
+   \addtolength{\homeworkSectionLabelLength}{0.25in}%
+   \changetext{}{-\homeworkSectionLabelLength}{}{}{}%
+   \subsection{\homeworkSectionName}%
+   \enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}}%
+  {\enterProblemHeader{\homeworkProblemName}%
+
+   % We put the blank space above in order to make sure this margin
+   % change doesn't happen too soon (otherwise \sectionAnswer's can
+   % get ugly about their \marginpar placement.
+   \changetext{}{+\homeworkSectionLabelLength}{}{}{}}%
+
+\newcommand{\sectionAnswer}[1]
+  {% We put this space here to make sure we're disconnected from the previous
+   % passage
+
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}%
+   \enterProblemHeader{\homeworkProblemName}\exitProblemHeader{\homeworkProblemName}%
+   \marginpar{\fbox{\homeworkSectionName}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   }%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\vspace{0.1in}\large{\textit{\hmwkClassInstructor}}\vspace{3in}}
+\date{}
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inv}{^{-1}}
+\begin{document}
+\begin{spacing}{1.1}
+\newpage
+% Uncomment the \tableofcontents and \newpage lines to get a Contents page
+% Uncomment the \setcounter line as well if you do NOT want subsections
+%       listed in Contents
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+
+\clearpage
+
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE University of Chicago \par}
+	\vspace{1cm}
+	{\scshape\Large Independent Reading Program\par}
+	\vspace{1.5cm}
+	{\huge\bfseries The Five Color Theorem\par}
+	\vspace{1cm}
+	{\Large\itshape Andrew Dong\par}
+	\vspace{2cm}
+	\begin{abstract}
+In this paper we will state the five color theorem as well as outline a proof of it by contradiction.  Furthermore, we will present a linear time five-coloring algorithm that works using Wernicke's Theorem.  Finally we will discuss briefly the history of the theorem as well as it's implication to the field of graph theory and beyond.  
+
+\end{abstract}
+	\vfill
+
+
+% Bottom of the page
+	supervised by\par
+	Professor~Janos \textsc{Simon}
+	\vspace{5 mm}
+	\\{\large \today\par}
+\end{titlepage}
+
+\section{Introduction}
+
+The five color theorem is a graph theoretic result which states that given a plane separated into mutually disjoint partitions there exists a permutation of coloring such that no two adjacent regions receive the same color.  The five color theorem was first brought up by Alfred Kempe in 1879 during a failed attempt to prove the stronger (and substantially more involved) four color theorem. Following Kempe's attempt to prove the four color theorem, Percy John Heawood provided a validated proof of the five color theorem building off of Kempe's previous work.  
+
+\section{Statement of Five Color Theorem}
+
+\textbf{\textit{•Theorem}}: All planar graphs G can be 5-list colored.  $\chi_1(G) \leq 5$
+
+\section{A few preliminary observations}
+
+Before we move on to the proof of the theorem, we would like to point out a few preliminary observations.  First, notice that for any graph, it is true that the adding of edges only increases the chromatic number.  That is, for any graph G and subgraph H of G, $\chi_1(G) \geq \chi_1(H)$.  Therefore it is safe to assume that a graph G is connected and that all the bounded faces have triangles as boundaries.  The graphs of this form are known as near-triangulated graphs.  
+
+\subsection{Chromatic Numbers}
+
+The chromatic number of a graph G is the smallest number of colors needed to color the vertices of G so that no two adjacent vertices share the same color.  The chromatic number of a graph G can be denoted $\chi(G)$ but occasionally is denoted by a gamma instead $\gamma(G)$.  For most small to moderately sized graphs, the column generation algorithm for computing chromatic numbers and vertex colorings devised by Mehrota and Trick is sufficient.  
+
+\subsection{Translation of map into simple planar graph}
+
+In order to properly state our theorem, we associate a simple planar graph G to a given map by putting a vertex in each region of the map and connecting the two vertices with an edge if and only if the corresponding regions share a common border.  We've now managed to translate the five color problem into a graph coloring problem in which we need to paint the vertices of the graph such that no edge has endpoints of the same color.  
+
+Since G is simple planar this means that it can be embedded in a plane without intersecting edges and therefore doesn't have two vertices which share more than one edge.  Furthermore, we know that there are no loops in it, thanks to the property of being simple planar.  Finally through the Euler characteristic we know that any given vertex can be shared by at mots five edges.  
+
+\subsection{A brief note on failed proofs of the four color theorem}
+
+We pause briefly to show that it is precisely due to the Euler characteristic of a simple plane that this proof of the five color theorem will fail for the four-color theorem (which is an identical claim except for the removal of one chromatic number).  To show that this fails for the four-color theorem we can consider the ocsahedral graph which is 5-regular and planar which does not have a vertex shared by at most four edges.  A regular icosahedron is a convex polyhedron with 20 faces, 30 edges and 12 edges.  It also happens to be one of the five Platonic solids.  
+
+\section{Sketch of proof of five-color theorem}
+
+Now consider such a simple planar graph G and a vertex shared by at most five edges.  We call such a vertex v.  
+
+Remove v from the graph G.  We now obtain a new graph $G\prime$ which has one fewer vertex than G.  Note here that we can assume by induction that $G\prime$ can be colored with only five colors.  
+
+Notice that v must be connected to five other vertices, since otherwise it can be colored in G with a color not used by them.  Consider the five vertices adjacent to v and define them $v_1, v_2, v_3, v_4, v_5$.  
+
+We can assume that $v_1, v_2, v_3, v_4, v_5$ are colored with colors a,b,c,d,e respectively, since otherwise we can obviously paint v in such a way that G is 5-colored.  
+
+Now we construct a subgraph $G_{ac}$ of G$\prime$ such that the vertices are only colored with colors a and c.  
+
+Suppose $v_1$ and $v_3$ lie in different connected components of $G_{ac}$.  Then we can reverse the coloration on the component containing $v_1$ and assign color a to v.  
+
+Now suppose the inverse scenario in which $v_1$ and $v_3$ lie in the same connected component of $G_{ac}$.  Thus we can find a path in $G_{ac}$ joining them which is a sequence of edges and vertices painted only with colors a and c.  
+
+Now consider another subgraph $G_{bd}$ of $G\prime$ which consists of vertices colored with colors b and d only and the edges connecting them.  
+
+Suppose $v_2$ and $v_4$ lie in different connected components of $G_{bd}$.  Reverse the coloration on the component containing $v_2$ and assign color b to v.  
+
+Suppose the scenario where $v_2$ and $v_4$ lie in the same connected component of $G_{bd}$.  Find a path in $G_{bd}$ joining them which is a sequence of edges and vertices painted only with colors b and d.  
+
+Here is the inherent contradiction, since the path in $G_{bd}$ consisting of edges and vertices painted only with colors b and d would intersect with the path constructed in $G_{ac}$.  
+
+Thus, G must be five-colored, contrary to our initial  assumption.  $\qed$
+
+\section{A more rigorous hashing of the proof of the five-color theorem}
+
+We wish to show that a planar graph G can be assigned a proper vertex k-coloring such that $k \leq$ 5.  
+
+It is obvious that the theorem is true for a graph with only one vertex.  We will apply a proof by induction to show that the theorem holds for $k \leq 5$.  
+
+Notice that each face of a planar graph is bounded by at least 3 edges, and each edge bounds at most 2 faces so $\frac{2}{3}e \geq f$.  Suppose that every vertex of G is incident on 6 edges or more.  Then 
+$$ 2 = v - e + f $$
+$$ 2 \leq v - e + \frac{2}{3}e $$
+$$ e \leq 3v - 6 $$
+$$ 2e \leq 6v - 12 $$
+$$ \sum degrees \leq 6v - 12 $$
+
+However, if every vertex has degree greater than 5, then $\sum degrees \geq 6v$ which is a contradiction.  Thus, G has at least one vertex with at most 5 edges which we call x.  Removing that vertex from G we construct  a new graph $G\prime$.  By induction hypothesis, we know that $G\prime$ is five-colorable.  
+
+If all five colors are not connected to x, then we can give x the missing color and make G five-colorable.  
+
+If all five colors are connected to x, then we further consider the five vertices that x is adjacent to, namely $y_1, y_2, y_3, y_4, y_5$ which we order cyclically about x.  We color 1,2,3,4 and 5 (ie label the vertices of the graph 1,2,3,4 and 5).  
+
+Now consider a subgraph $G_{1,3}$ of $G\prime$ which consists only of vertices colored 1 and 3, and the edges that connect vertices of color 1 to vertices of color 3.  If there is no walk between $y_1$ and $y_3$ in $G_{1,3}$ then we simply switch colors 1 and 3 in the portion of $G_{1,3}$ connected to $y_1$.  Therefore, x is no longer adjacent to a vertex of color 1 so we can color it 1.  
+
+If there is a walk between $y_1$ and $y_3$ in $G_{1,3}$ then we proceed to form $G_{2,4}$ in a similar manner.  Since G is planar and there is a circuit in G that consists of the walk from $y_1$ to $y_3$, x and the edges $xy_1$ and $xy_3$, clearly $y_2$ cannot be connected to $y_4$ with $G_{2,4}$.  Therefore we can switch colors 2 and 4 in the portion of $G_{2,4}$ connected to $y_2$.  
+
+Therefore we can switch colors 2 and 4 in the portion of $G_{2,4}$ connected to $y_2$.  Therefore, x is no longer adjacent to a vertex of color 2, so we color it 2.  $\qed$
+
+\section{A linear time five-coloring algorithm}
+
+\subsection{Background}
+
+In 1996, Robertson, Sanders, Seymour and Thomas described a quadratic four-coloring algorithm in their "efficiently four-coloring planar graphs".  In this paper they describe a linear-time five-coloring algorithm, which is asymptotically optimal.  The algorithm as described here operates on multigraphs and relies on the ability to have multiple copies of edges between a single pair of vertices.  
+
+\subsection{Wernicke's Theorem}
+
+The algorithm for linear time five-coloring of planar graphs depends on Wernicke's theorem, which states the following.  
+
+\textbf{Wernicke's Theorem}: Assume G is planar, nonempty, has no faces bounded by two edges and has minimum degree 5.  Then G has a vertex of degree 5 which is adjacent to a vertex of degree at most 6.  
+
+For the algorithm we use a representation of the graph in which each vertex maintains a cirular linked list of adjacent vertices in clockwise planar order.  
+
+\subsection{Back to the algorithm}
+
+Conceptually, the algorithm for five-coloring is recursive, whereby we reduce any given graph to a smaller graph with one less vertex, five-color the smaller graph and use that coloring to determine a coloring for the larger graph in constant time.  In practice we remove vertices from the graph as we go, add them to a stack, color them as we go and pop them back off the stack at the end.  
+
+We define three stacks $S_4, S_5, S_d$.  
+
+$S_4$ contains all remaining vertices with either degree at most four, or degree five and at most four distinct adjacent vertices.  
+
+$S_5$ contains all remaining vertices that have degree five, five distinct adjacent vertices and at least one adjacent vertex with degree at most six.  
+
+$S_6$ contains all vertices deleted from the graph so far in the order in which they are deleted.  
+
+\subsection{A gentle walkthrough}
+
+First we collapse all multiple edges to single edges so that the graph is simple.  We then iterate over the vertices of the graph pushing any vertex matching the conditions for $S_4$ and $S_5$ onto the appropriate stack.  
+
+Next, as long as $S_4$ is non-empty, we pop v from $S_4$ and delete v from the graph pushing it onto $S_d$ along with a list of its neighbors at this point in time.  We check each former neighbor of v, pushing it onto $S_4$ or $S_5$ if it now meets the necessary conditions.  
+
+Once $S_4$ is empty, we know that our graph has minimum degree five.  If it is empty we go to the final step.  Otherwise, by Wernicke's Theorem we have that $S_5$ is nonempty.  Pop v off $S_5$, delete it from the graph and take $v_1,v_2,v_3,v_4,v_5$ to be the former neighbors of v in clockwise planar order where $v_1$ has degree at most 6.  Checking if $v_1$ is adjacent to $v_4$ we see two alternate cases.  
+
+1.  Suppose $v_1$ is not adjacent to $v_3$.  Then we can merge these two vertices into a single vertex.  To do this remove v from both circular adjacency lists and splice the two lists together into one list at the point where v was formerly found.  If v maintains a reference to its position in each list this can be done in constant time. It's possible that this might create faces bounded by two edges at the two points where the lists are spliced together. We then delete one edge from any such face.  After doing this we can push $v_4$ onto $S_d$ and add a note that $v_1$ is the vertex it was merged with.  Any vertices affected by the merge are added or removed from the stacks as deemed appropriate.  
+
+2.  Supper $v_1$ is adjacent to $v_3$.  Then $v_2$ lies inside the face outlined by v, $v_1$ and $v_3$.  Therefore $v_2$ cannot be adjacent to $v_4$ which lies outside this face.  Merge $v_2$ and $v_4$ in the same way we merged $v_1$ and $v_3$ above.  
+
+4. Check again that $S_4$ is nonempty and again pop v from $S_4$and delete v from the graph pushing it to $S_d$.  Again check each former neighbor of v pushing it onto $S_4$ or $S_5$.  
+
+5.  Once we've emptied $S_4, S_5$ and the graph, we pop vertices off $S_d$.  If the vertex was merged with another vertex in step 3, the vertex that it was merged with will already have been colored and we assign it the same color.  This is valid because we only merged vertices that were not adjacent in the original graph.  If we had removed it because it had at most 4 adjacent vertices then all of its neighbors at the time of its removal will have already been colored and we can simply assign it a color that none of its neighbors are using.  
+
+\section{Conclusion}
+
+Here we've shown an elementary proof of the five color theorem through contradiction.  Furthermore, we've walked through the construction of a linear-time five-coloring algorithm for graphs.  Both results will be important in building towards the proof of the four-color theorem, which depends on a similar algorithmic technique of reducing classification of graphs.  In the future we will attempt to provide an analysis of the four-color theorem as well as it's importance to the field of theoretical computer science.  
+
+Before concluding this paper I would like to thank Professor Janos Simon for his supervision of my independent study of discrete mathematics and graph theory.  Furthermore, I would like to pay reference to Neil Robertson and Daniel Sanders for their paper "Efficiently four-coloring planar graphs" which provides the outline for the linear-time algorithm of five-coloring.  Finally, I would like to thank the University of Chicago as well as the online community devoted to the study of graph theory for this educational paper would not be possible without either.  
+
+
+\end{spacing}
+
+\end{document}

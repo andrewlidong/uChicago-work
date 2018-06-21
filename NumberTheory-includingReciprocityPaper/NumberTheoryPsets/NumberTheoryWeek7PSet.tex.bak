@@ -1,0 +1,217 @@
+\documentclass{article}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage[all]{xy}
+\usepackage{enumerate,verbatim}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.5in        %
+\textheight=9.0in       %
+\headsep=0.25in         %
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{Polynomials}
+\newcommand{\hmwkClass}{Number Theory}
+\newcommand{\hmwkClassInstructor}{Professor Ngo}
+\newcommand{\hmwkAuthorName}{Andrew Dong}
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{\hmwkClass\ (\hmwkClassInstructor : \hmwkTitle)}  %
+\rhead{\firstxmark}                                                     %
+\lfoot{\lastxmark}                                                      %
+\cfoot{}                                                                %
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}                          %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some tools
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   \changetext{}{+\labelLength}{}{}{}}%
+
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+\newenvironment{homeworkSection}[1]%
+  {% We put this space here to make sure we're not connected to the above.
+   % Otherwise the changetext can do funny things to the other margin
+
+   \renewcommand{\homeworkSectionName}{#1}%
+   \settowidth{\homeworkSectionLabelLength}{\homeworkSectionName}%
+   \addtolength{\homeworkSectionLabelLength}{0.25in}%
+   \changetext{}{-\homeworkSectionLabelLength}{}{}{}%
+   \subsection{\homeworkSectionName}%
+   \enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}}%
+  {\enterProblemHeader{\homeworkProblemName}%
+
+   % We put the blank space above in order to make sure this margin
+   % change doesn't happen too soon (otherwise \sectionAnswer's can
+   % get ugly about their \marginpar placement.
+   \changetext{}{+\homeworkSectionLabelLength}{}{}{}}%
+
+\newcommand{\sectionAnswer}[1]
+  {% We put this space here to make sure we're disconnected from the previous
+   % passage
+
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}%
+   \enterProblemHeader{\homeworkProblemName}\exitProblemHeader{\homeworkProblemName}%
+   \marginpar{\fbox{\homeworkSectionName}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   }%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\vspace{0.1in}\large{\textit{\hmwkClassInstructor}}\vspace{3in}}
+\date{}
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inv}{^{-1}}
+\begin{document}
+\begin{spacing}{1.1}
+\newpage
+% Uncomment the \tableofcontents and \newpage lines to get a Contents page
+% Uncomment the \setcounter line as well if you do NOT want subsections
+%       listed in Contents
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Elementary Number Theory \par}
+	\vspace{1cm}
+	{\scshape\Large Problem Set 7\par}
+	\vspace{1.5cm}
+	{\huge\bfseries A selection of exercises on polynomials\par}
+	\vspace{1cm}
+	{\Large\itshape Andrew Dong\par}
+	\vspace{2cm}
+
+	\vfill
+
+
+% Bottom of the page
+	Professor~Ngo \textsc{Bao Chau}
+	\\ Minh-Tam Trinh
+	\vspace{5 mm}
+	\\{\large \today\par}
+\end{titlepage}
+
+
+\clearpage
+
+\section{Math 17500: Problem Set 7}
+
+\subsection{1.  Find the polynomial P $\in$ R[t] of smallest degree such that P(1) = -1, P(2) = 9 and P(3) = 10}
+
+\textbf{Solution: }
+
+We have 3 points so this means that we take a polynomial of 2 degrees of the form $P(x)= ax^2 + bx + c$.  We then plug in values P(1) = -1, P(2) = 9 and P(3) = 10 to obtain a system of equations.  Solving this system of equations we get $a = -\frac{29}{2}, b = 10 + \frac{3 * 29}{2}, c = -11 - \frac{2 * 29}{2}$.  Thus, the polynomial of smallest degree is $P(x) = -\frac{29}{2}x^2 +(10 + \frac{3 * 29}{2})x -11 - \frac{2 * 29}{2}$.  
+
+\vfill
+
+\subsection{2.  Find P $\in$ C[t] of smallest degree such that P(1) = -1, P(i) = 9 and P(1 + i) = -10}
+
+\textbf{Solution: }
+
+Again we have 3 points so we take a polynomial of 2 degrees of the form $P(x)= ax^2 + bx + c$. Plugging in values P(1) = - 1, P(i) = 9 and P(1 + i) = - 10 to obtain a system of equations.  Solving this we get $P(x) = (-1 - \frac{28 - 20i}{1+i} - 4(28-20i))x^2 +(\frac{28 - 20i}{1+i})x + 4(28-20i)$.  
+\vfill
+
+\subsection{3.  Find the smallest positive integer n satisfying the congruences n $\equiv$ 1 mod 3, n $\equiv$ 3 mod 7 and n $\equiv$ 7 mod 13}
+
+\textbf{Solution: }
+
+We write this as a system of congruence equations and since 3,7,13 are relatively coprime we apply Chinese Remainder Theorem.  We end up with the equation $7 * 13 + 3 * 2 * 3 * 13 + 7 * 5 * 3 * 7 \text{ mod } 3 * 7 * 13$ which results in the congruence equation 52 mod 273 which implies that 52 is the smallest positive integer n satisfying the congruence equations.  
+
+\vfill
+
+\newpage
+
+\subsection{4. Find all irreducible polynomials of the form $t^2 + a$ in $F_{11}[t]$.}
+
+\textbf{Solution: }
+
+We find irreducible polynomials of the form $t^2 + a$ by finding the quadratic residues modulo 11 and taking 
+values that are quadratic nonresidues for a.  An integer is a quadratic residue if it is congruent to a perfect square.  Luckily we have the law of quadratic reciprocity to aid us, which states that for two odd prime numbers a and b, the Legendre symbol $\frac{a}{b} * \frac{b}{a} = (-1)^{\frac{a-1}{2} * \frac{b-1}{2}}$.  Since b = 11 is an odd prime number, we just need to check 3, 5 and 7.  By law of quadratic reciprocity, 3 is an QNR, 5 is a QR and 7 is an QNR.  Thus, irreducible polynomials in $F_{11}$ are $t^2 + 3$ and $t^2 + 7$.  
+
+\vfill
+
+\subsection{5.  Find the number of zeros in $F_{13}$ of the polynomial $t^{1000} + t{100} + 1$}
+
+\textbf{Solution: }
+
+$F_{13}$ is isomorphic to Z/12Z.  Furthermore, 2 is a primitive root of $F_{13}$.  This means that $2^0 \text{ mod } 12 \equiv 2^{12} \equiv 2^{24}$ and so on.  We have that $t^{1000} \equiv t^{1000 \text{ mod } 12} \text{ mod } 13 \equiv t^4 \text{ mod } 13 \equiv t^{100}$.  Thus it follows that we just need to solve $2t^4 \equiv 12 \text{ mod } 13$ which can be rewritten $t^4 \equiv 6$ mod 13 for which no solutions exist, which implies that there zeros.  
+
+\vfill
+
+\subsection{6.  Show that if gcd(n,p-1) = 1, then the polynomial $t^n - 1 \in F_p[t]$ has exactly one zero in $F_p$.}
+
+\textbf{Solution: }
+
+Since we know the gcd, we can rewrite this as $t^n \equiv 1$ mod p which we can turn into an arithmetic function $n * f(t) \equiv 0 $ mod (p-1).  One solution is the case in which f(t) is the zero map.  Then $f^{-1}(f(t)) = 1$.  Now suppose that f(t) is not the zero map, that is it maps t to some integer.  Now we use the fact that n and p - 1 are relatively prime, and claim that one of n or f(t) must be 0 in order to solve or congruence equation $n * f(t) \equiv 0 $ mod (p-1).  n cannot be zero here, so f(t) must be the zero map.  
+
+\vfill
+
+\subsection{7.  Show that if gcd(n,p-1) = 1, then the polynomial $t^n - a \in F_p[t]$, for any $a \in F_p$, has exactly one zero in $F_p$.  }
+
+\textbf{Solution: }
+
+Here we proceed similarly returning a congruence equation similar to that in 6 this time $n * f(t) \equiv f(a)$ mod (p-1).  Since n and p-1 are relatively prime then n can be inverted to give the congruence equation $f(t) \equiv -n + f(a)$ mod (p-1).  Previously we showed that for a = 1 and f(a) = 0 f(t) must be zero.  Now suppose a $\neq$ 1.  If f(a) = n then we have f(t) = 0.  f(a) only equals n once in z/(p-1)Z.  
+
+\vfill
+
+\end{spacing}
+\end{document}

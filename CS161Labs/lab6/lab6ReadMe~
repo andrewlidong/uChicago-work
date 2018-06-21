@@ -1,0 +1,42 @@
+README Lab 6
+
+Andrew Dong (with help from Jay Z)
+
+Lab 6 has to do with Randomness.  We begin by downloading the RandState.zip file and proceed by building off that code (and answering some questions).  
+
+Testing will be writen with monadic code.  
+
+Comments will be inserted above functions.  
+
+We first consider the example function included in stateExample2:  
+
+stateExample2 :: Int -> IO [Double]
+stateExample2 n = do
+	gen <- newStdGen
+	let r = runRandom (rList n [] ) gen
+	return r where
+		rList :: Int -> [Double] -> RandState [Double]
+		rList 0 xs = do
+			return xs
+		rList n xs = do
+			x <- rand
+			--recurse to build rest of list
+			rList (n-1) (x:xs)
+
+testStateExample2 tests that the list output by stateExample2 is the correct length.  
+
+The function testAll tests functions within the lab and indicates the number of tests passed.   
+
+First a bit on randomness: in computer programs there should be some randomness to the behaviour of a program.  For this we use the random number generator which generates an unlimited sequence of random numbers (usually not truly random but pseudo-random).  A pseudo-random number generator generates a sequence of numbers based on an initial state s using a function f.  The states are s1 = f(s), s2 = f(f(s)), s3 = f(f(f(s))) etc.  Each random number is then derived from each of these intermediate states (typically by taking a small proportion of the 0's and 1's from the state).  f has to be chosen so that subsequent states have no obvious correlation, so for most intents and purposes the numbers generated are random, but the sequence of numbers is in fact entirely determined by the initial state s.  In many programming languages, the random number generator is hiden from the programmer, but because of the purity of Haskell, the random number generator state must explicitly be passed through the program.  
+
+Now on the state monad: the state monad lets you maintain state betwen functions without having to explicitly pass it from one function to the next.  This can be useful for random numbers, since otherwise we would have to explicitly pass the random number generator in and out of every function that needed it.  
+
+randR generates numbers in a specified range.  
+rollTwoDice generates a random sum of two dice.  
+removeCard is monadic and picks a random card out of a list.  
+shuffleDeck takes a list of playing cards.  
+shuffleADeck generates and outputs a shuffle of 52 cards.  
+
+For Extra, we approximate pi.  
+
+First, a bit on the Monte-Carlo method.  One simple usage of it is to approximate the value of pi

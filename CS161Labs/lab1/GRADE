@@ -1,0 +1,7 @@
+1
+
+Good job on polyAdd and handling the case where you have different length sequences
+
+Add some tests in next time.  Also if you're having trouble implementing the main piece: come see me in office hours!
+
+Also to do checks for polyPoints manipulation equality is not the best but using polyApproxEqual style logic would work.

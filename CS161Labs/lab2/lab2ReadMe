@@ -1,0 +1,26 @@
+Lab2: Intersections and Computational Geometry
+
+In this lab we will use Haskell's algebraic data types as a basis for defining geometric objects.  We will model shapes in the two-dimensional plane and figure out whether they can intersect.  Hint hint, this is useful for computer games.  But our code probably won't be.  
+
+We begin the lab by defining 
+Point, a point in the xy plane represented by x and y coordinates
+LineSegment, a straight line of finite length defined by its two end points and
+Path, a 2D path in the xy-plane.
+Line, an infinite straight line defined by its slope a and its y intercept b, by the equation ax + b.  
+
+Intersects checks whether a LineSegment intersects with a Line.  
+
+Defining data types for shapes:
+Shape is defined to be either a Triangle, Quadrilateral or Circle.  
+
+Bounding Boxes for Shapes: 
+For any shape there is a unique minimum bounding rectangle, defined as the smallest axis-aligned rectangle that encloses the shape.  Axis-aligned means that each of the four edges of the rectangle runs parallel to either the x-axis or the y-axis.  
+
+BoundingBox is a datatype defined by two points, the bottom-left corner and the upper-right corner.  
+boundingShape maps a Shape to a BoundingBox 
+
+Checking if Lines Intersect with bounding boxes: 
+
+intersectsBB takes a bounding box and a path and checks to see if the path intersets the bounding box.  
+mightIntersectShape checks if a path intersects the bounding box of a shape.  This is a short function.  
+Parabola is a type constructor.  

@@ -1,0 +1,241 @@
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper, 11pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{graphicx} % Required for including pictures
+\usepackage{wrapfig} % Allows in-line images
+
+\usepackage[margin=1.1in]{geometry}
+
+
+\usepackage{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Required for accented characters
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\usepackage{setspace}
+\doublespacing
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title and author name here, see the TITLE block below
+\begin{flushright} % Right align
+{\LARGE\@title} % Increase the font size of the title
+
+\vspace{50pt} % Some vertical space between the title and author name
+
+{\large\@author} % Author name
+\\\@date % Date
+
+\vspace{40pt} % Some vertical space between the author block and abstract
+\end{flushright}
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\clearpage
+
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE University of Chicago \par}
+	\vspace{1cm}
+	{\scshape\Large Pop-Culture, Art and Autocracy\par}
+	\vspace{1.5cm}
+	{\huge\bfseries An Ideological Examination of Complicity in Nazi Germany\par}
+	\vspace{1cm}
+	{\Large\itshape Andrew Dong\par}
+	\vspace{2cm}
+	
+	\begin{abstract}
+	\singlespacing
+	
+	
+	
+In this paper we will deal with the following question:	
+	
+\textbf{Consider the two propositions: "they do not know, but they are doing it" and "they all know very well what they are doing, but still they are doing it."  Which better describes citizens' relationship to authoritarian rule in your opinion?  What about artists' attitudes? }
+
+We'll be examining this problem in the context of civilian and artistic consent to the Nazi Party.  In particular we will study the role that Ideological State Apparatuses played in the perpetuation and execution of Nazi beliefs.  The paper will begin with a discussion of Althusserian Structuralism and then analyze Zizek's psychoanalytic concept of Ideology not as a simple propagandist tool but instead as a complex and integral component of human life.  From these we will derive the theory needed in order to examine our two main case studies: \textit{Eichmann in Jerusalem} and \textit{Mephisto}.  
+
+
+
+\end{abstract}
+	\vfill
+
+
+
+% Bottom of the page
+	supervised by\par
+	Professor~Lisa \textsc{Wedeen}
+	\\ Professor~Monika \textsc{Nalepa}
+	\vspace{5 mm}
+	\\{\large \today\par}
+\end{titlepage}
+
+
+%----------------------------------------------------------------------------------------
+%	ESSAY BODY
+%----------------------------------------------------------------------------------------
+
+\section*{Introduction}
+
+We will argue that both citizens and artists living in Nazi Germany understood the potential misdeeds of the regime they were living in but complied regardless.  Through theory laid out by Louis Althusser and Slavoj Zizek we will see that this compliance was not optional, nor was it forced by the ruling Nazis, but instead ought to be seen as the result of a complex structure of Ideology.  
+
+First we will discuss Structuralism and its role in Nazi Germany through Althusser's concept of ideal State Apparatuses.  Here we will clearly distinguish between Repressive State Apparatuses (RSA) and Ideal State Apparatuses (ISA), as well as properly establish what we understand Structuralism to be.  
+
+Following our analysis of Ideological State Apparatuses, we will consider the particular set of circumstances in Germany which allowed for the Nazi party to gain rise.  For this we will examine technological, social and intellectual changes and see how they contributed to the development of a set of apparatuses that allowed for the cultivation of Nazi Ideology.  
+
+We will then conclude our theoretical study by considering Zizekian Ideology as described in "\textit{The Sublime Object of Ideology}".  We will see why Zizekian Ideology is an integral part of human existence and why citizens and artists living under the Nazi regime would have no choice but to accept it.  Crucially we will see that the existence of a Nazi Ideology fundamentally forces compliance for those living in it.  
+
+With our background in theory established we will look more closely at the case of Adolf Eichmann as described in Hannah Arendt's account titled \textbf{Eichmann in Jerusalem}.  In it we will examine Eichmann's relationship with both his party and his peers in order to show how these relationships resulted in Eichmann carrying out actions that perpetuated Nazi Ideology.  Additionally we will consider the phrase "the banality of evil" and argue for why Zizekian Ideology is a necessary component of it's existence.  
+
+Following our study of civilian compliance in Adolf Eichmann we will look towards the artists role in understood compliance.  In particular we will be engaging with a character study of Hendrik Hofgen from Istvan Szabo's 1981 film adaptation \textit{Mephisto}.  Our focus will be on cinematic and storytelling techniques the film employs and we will be especially cognizant of the symbolism of masks, mirrors and spotlights, as well as its employment of irony.    
+
+We conclude the paper with a discussion of whether true artistic neutrality as described by Susan Sontag in \textit{Fascinating Fascism} is possible and will briefly discuss Tadeusz Borowski's novel \textbf{This Way for the Gas, Ladies and Gentlemen}.   
+
+%------------------------------------------------
+
+\section*{Structuralism and Ideological State Apparatuses}
+
+We begin with a discussion of Structuralism as a means for understanding the pillars necessary for compliance in an autocratic state.  Structuralism states generally that human life is nonsensical outside of interrelations that exist \cite{Althusser}.  It can be thought of as a statement that human culture must be understood in the terms of larger, ubiquitous systems, or structures. 
+
+Althusser engages in a conversation about Structuralism by using a dialogue between Repressive and Ideological State Apparatuses.  The main purpose of a state apparatus is to ensure the ongoing viability of the state itself.  Through such apparatuses, a particular sort of logic is developed through economic, legal and political institutions.  Althusser argues that state apparatuses function with a particular sort of power exerted by the state which is manifested in actions taken by church, school and business \cite{Althusser}.  This logic that is perpetuated through different apparatuses work for the long-term interests of the system itself as opposed to the short-term interests of its ruling class.  Thus we can think about state apparatuses as exhibiting some degree of freedom from tampering.  
+
+Repressive State Apparatuses, or RSAs, are state apparatuses which functions through repression of individual liberties.  They work by suppressing and dominating the working class \cite{Lecture3}.  These  apparatuses can be thought of in contrast to Ideological State Apparatuses, or ISAs.  While RSAs are a unified exertion of repression and violence, ISAs are generally a more plural effort (though ISA's can also function through means of repression and violence) \cite{Lecture3}.  In many ways, ISAs belong to a more private domain than RSAs, and they draw their power not from direct confrontation but instead through fear of ridicule and alienation.  For this reason, the theory of ISAs draws from psychoanalytic conceptions of the unconscious and mirror-phase put forth by Freud and Lacan, as well as Marxist notions of superstructures.  
+
+%------------------------------------------------
+
+
+\section*{Conditions in Germany leading to the rise of the National Socialists}
+
+In the time period leading to the rise of Nazism in Germany there were several competing ideologies - several of which actually seemed dramatically more statistically viable than Nazism.  In the 1928 elections, the National Socialists received a mere 2.8 percent of the vote\cite{Lecture3}.  Within a mere 4 years they would generate up to 40 percent of the popular vote which would stand to be enough for plurality \cite{Lecture3}.  Such a massive growth in popularity is hardly conceivable unless we consider the important cultural shifts that happened in Germany.  
+
+Nationalism and in particular the Nazi party emphasized a collective imagining that was very much in tune with the concept of collective solidarity that was popular in Germany at the time.  What the Nazis capitalized on and emphasized in their cultural releases (such as Triumph of the Will with the establishment of the term "the people" \cite{TriumphFilm}) was a sense of horizontal comradery and nominal equality.  These concepts, drawing largely from themes of the French Revolution, were emphasized by technological changes happening at the time.  In particular we look to the increased emphasis on time which allowed for face to face relationships to be largely supplanted by the state through means of simultaneous experience.  Besides this, railroads, national holidays and the discipline had all emerged relatively recently which contributed to an increasingly worldly attitude on time \cite{Lecture3}.  
+
+Besides solidarity and the new sensation of simultaneous experience, the rise of capitalism also was an unintended benefit to the Nazi party.  The Nazi manifesto promised universal employment and the party itself built alliances with businesses who were terrified by the prospect of communism.  This meant that the Nazis had economic backing and were thus much more in tune with capitalistic engines turning in Germany at the time \cite{Lecture3}.  Along with the rise of capitalism there was also a greater intellectual emphasis on Heidegger's philosophy of being.  National Socialism was seen as an attractive  alternative to communism for it's promise of self-realization and individual being.  
+
+
+%------------------------------------------------
+
+\section*{Zizekian Ideology}
+
+In \textit{The Sublime Object of Ideology} Zizek draws from both Marx and Freud to develop a conception of Ideology that describes it as being ubiquitous, inescapable and very much a part of daily consciousness \cite{Zizek}.  For Zizek, Ideology is something vast and powerful beyond perception and intelligibility \cite{Zizek}.  
+
+Zizek describes several instances of Ideology in his second film titled \textit{The Pervert's Guide to Ideology}.  In one scene he brings up Steven Spielberg's 1975 \textit{Jaws} in which he observes that analyses of the film differed greatly among audiences.  He remarkably points out that Fidel Castro himself loved the film since he interpreted it as being a leftist film, with the shark being symbolic of capitalism's exploits over Americans \cite{FiennesFilm}.  For Zizek this would make sense, since Castro is being guided by a different Ideological belief system than American viewers.  Zizek explains this by saying "their social reality itself, their activity, is guided by an illusion, by a fetishistic inversion" \cite{Zizek}.  This illusion is not established by any particular individual or even group of individuals.  He remarks that "the ruling ideology is not meant to be taken seriously or literally" \cite{Zizek}.  Instead, Ideology is something that emerges through relationships and exists independent of manipulations.  
+
+Zizek argues that even if an Ideology is recognized, it still obliges it's constituents.  He writes "they know very well how things are, but still they are doing it as if they did not know" \cite{Zizek}.  Thus even if members are aware of the Ideology under which they are living - even if they try to resist or keep a distance - they are still subjugated to it.  We will see now where this is true for Adolf Eichmann and Hendrik Hofgen.  
+
+%------------------------------------------------
+
+\section*{Eichmann in Jerusalem and the Banality of Evil}
+
+The crucial point of study in \textit{Eichmann in Jerusalem} is determining whether Adolf Eichmann, a citizen in Nazi Germany who contributed to the Final Solution, acted out of radicality or out of blind compliance.  In \textit{The Sublime Object of Ideology}, Zizek describes people living under ideology as leaving rational argument and instead submitting to ideological ritual \cite{Zizek}.  This would imply the later motive, and it can be seen that Eichmann behaved according to this ideological theory.  
+
+During the trial Eichmann himself frequently states that he had tried to abide by a Kantian Categorical Imperative \cite{Arendt}.   Eichmann had understood the Categorical Imperative to be that one man's actions had to coincide with the general law.  This general law for Eichmann was one that was put forth the Nazi party.  Arendt argues that as Eichmann attempted to abide by this false Categorical Imperative he was "no longer master of his deeds, and was unable to change things" \cite{Arendt}.  
+
+At the end of World War II, Eichmann had fallen into depression since "it had dawned on him that thenceforth he would have to live without being a member of something or other" \cite{Arendt}.  For Eichmann, existence itself would cease to be meaningful without abidance to some group Ideology.  Zizek himself argued that Ideology is not a dreamlike illusion, but instead is a "basic dimension ... a fantasy-construction which serves as a support for our reality itself" \cite{Zizek}.  Thus with this we can interpret Eichmann's compliance to the party as being not an escape from reality but instead an attempt to join a reality and escape from some other traumatic void state \cite{Zizek}.  
+
+Crucially though we must point out that Eichmann had understood the moral misgivings he was carrying out.  Arendt claims that Eichmann had witnessed the endorsement for the Final Solution at the Wannsee Conference \cite{Arendt}.  Rather than reacting negatively towards this, the Wannsee Conference had relaxed Eichmann, for his moral duties would be lessened by the endorsement and plan made by Reinhard Heydrich.  
+
+During Eichmann's imprisonment, several psychological examinations of Adolf Eichmann showed no mental illness or even abnormal personality \cite{Arendt}.  In fact, friends and family of Eichmann claimed that he was exceptionally regular \cite{Arendt}.  Despite the efforts of the Israeli prosecution, it was quite obvious to everyone that Eichmann was not a monster \cite{Arendt}.  Instead, he was a man who was unable to think by himself and who was to some extent forced to comply with the Nazi Party because of the Ideology he was inherently bound by.  Eichmann's guilt then should be thought of as coming from obedience, that very obedience which had, for most of his life, been praised as a virtue \cite{Arendt}.  
+
+
+%------------------------------------------------
+
+\section*{Mephisto and the rapid politicization of theater}
+
+Hendrik Hofgen, the main character in Klauss Mann's 1981 film Mephisto can similarly be analyzed using Structuralism and Ideology.  In the film, Hofgen struggles with his identity as an actor.  Before his departure from Germany and the Nazi Party in the first half of the film, Hofgen is frequently shown frustrated at his inability to express himself as he so wishes.  This is partly due to a lack of Ideological identity, which the audience witnesses in his scenes cross-dressing with his mistress.  Zizek in his \textit{The Sublime Object of Ideology} writes about Ideology by saying that "It is this unconscious/sexual desire which cannot be reduced to a normal train of thought because it is, from the very beginning, constitutively repressed because it has no origin in the normal language of everyday communication, in the syntax of the conscious/preconscious" \cite{Zizek}.  We find Hofgen to be in deep internal conflict with who and what he should be representing as an actor, which can very much be interpreted as a struggle with Ideology.  
+
+When news of the Nazi Party's political victory reaches Hofgen over the radio he is conflicted as to whether he should stay or go.  During an argument with his wife Barbara over whether he should stay in Germany, Hofgen states "I've never been interested in politics, so why now" \cite{MephistoFilm}?  To which Barbara responds "Don't you realize what's happening here" \cite{MephistoFilm}?  Here Hofgen is attempting to maintain a degree of detachment from German politics, though in reality we see that he is actually bound to living in Germany.  He says "this is the only form of freedom for me, for an actor" \cite{MephistoFilm} to which Barbara responds "you can't hide behind Shakespeare on the stage" \cite{MephistoFilm}.  It's here revealed that Hofgen is to some extent trapped by his Ideology in Germany - that in order to survive he needs the ability to perform in his home country.  He ends the argument with a clear statement validating his commitment to German Ideology, shouting "I need the German language!  I need the motherland, don't you see" \cite{MephistoFilm}?  
+
+%------------------------------------------------
+
+\section*{The Cinematography of Mephisto: Use of Masks, Mirrors and Spotlights}
+
+Director Istvan Szabo employs several cinematic techniques which work to emphasize Hofgen's entrapment in Nazi Ideology.  In particular, the usage of mirrors, masks and spotlights are used to express his alienation, struggle with identity and troubled relationship with society.  
+
+The white mask in Mephisto can be seen as a symbol of conformity to Nazi Ideology.  Zizek writes in \textit{The Sublime Object of Ideology} that "the cynical subject is quite aware of the distance between the ideological mask and the social reality, but he nonetheless still insists upon the mask" \cite{Zizek}.  As Hofgen's relationship with the party grows, he wears the mask with increasing frequency, even when he is not on stage as an actor.  Furthermore, there is a particular wedding scene when several non-actors are shown adorning white masks.  Here we can think to Zizek's comments about cynicism, saying that "cynicism is the answer of the ruling culture to this cynical subversion: it recognizes, it takes into account, the particular interest behind the ideological universality, the distance between the ideological mask and the reality" \cite{Zizek}.  Hofgen is deeply disturbed that he is no longer the only one wearing the mask, perhaps because he does not view his ideology with cynicism.  After this wedding scene though, his personality changes to one more serious and understanding of his role in the state.  He becomes aware of the hidden significance of the mask but still chooses not to wear it.  
+
+While the masks suggest a struggle with identity and a sense of alienation from society, mirrors in the film also reinforce these themes.  Mirrors are frequently used as a way for Hofgen to check in with himself.  They can be interpreted as Hofgen's drive to be whole \cite{Lecture2}.  For Zizek, Ideology is meant to "smooths out conflicts or inconsistencies that make life difficult to manage" \cite{Zizek}.  This can be seen as Hofgen seems to use mirrors (and to some extent his mask) as a therapeutic tool.  
+We can observe Hofgen's infatuation with checking his image using Lacanian Mirror Stage analysis as he sees himself not as a whole person but instead as an object to reinforce his Ideology.  Additionally, Hofgen's drive to feel whole as an artist results in aggressive and narcissisive behavior, especially when he is with his mistress.  In our first scene with her, Hofgen is pressed against a wall made entirely of mirrored glass.  As he dances facing himself in the mirror we get a sense for his struggle with his identity.  His cross-dressing as well as ambiguous relationship with his mistress can be seen as this struggle manifesting, as the mirrored wall captures the object of their affair.  
+
+Finally, the use of spotlights can be understood as different ways of framing Hofgen's reality.  With spotlights we can think of the contrast between their use in the small performances Hofgen engages early in his career versus later on as an established and party-supported artist and finally in the large stadium.  In small performances the spotlighting is minimal and appears to be limited by the size of the stage.  It's during these performances that Hofgen is given the opportunity to express himself freely, but ironically he detests these performances, perhaps because to some extent he needs a guiding Ideology.  We can contrast this with scenes of the stage once Hofgen has ingratiated himself with the party and we see that he is far more pleased with the larger theaters and the firm, but controlled spotlighting.  In the end though, the spotlighting on Hofgen becomes too fierce and Hofgen seems to be unsure of how to handle it.  Hofgen is seen running around a stadium but is being assaulted by the bright spotlight.  There is some ambiguity in the end as to whether Hofgen will be executed in the theater but the audience should understand that the literal fate of Hofgen is largely unimportant.  This is because Hofgen has already shown to be unable to handle the Ideology in which he lives in, and thus will not be able to live meaningfully regardless.  
+
+%------------------------------------------------
+
+\section*{A Deep Faustian Irony}
+
+A central question of \textit{Mephisto} is whether the true Mephistopheles of the film is Hofgen or the Prime Minister represented in the film as Hermann Goring.  This question first comes to prominence in a scene following a performance of Mephisto.  Hofgen is invited to the Prime Minister's box and from here on out, the Prime Minister only refers to Hofgen as Mephisto.  However, the actual relationship between the two characters doesn't necessarily reflect this.  In the meeting in the box, the Prime Minister says that "the mask is prefect, it's evil itself, it's sacred evil... yet your eyes are so kind, your handshake so soft.  It's strange..." \cite{MephistoFilm}.  This can be interpretted as an implicit understanding that Hofgen is necessarily bound to the party and it's Ideology.  Thus, whether through repression or Ideology, the Minister does exhibit some degree of power over Hofgen.  This power and influence over Hofgen as an actor can be thought of as a hidden hand \cite{Lecture2}.  In Mephisto, the deep irony is that Hofgen's fondest dream is to play Mephisto in front of his fellow Germans, but in order to do so must sell his ideals to the party.  He doesn't realize until it's already too late for him that the true trickster has been Goring, and really more accurately, the mechanisms of the Nazi Ideological State Apparatus.  While Hofgen claims that his performances are apolitical, rhetorically asking the question "what do they want with me I'm only an actor" \cite{MephistoFilm} the audience knows that this is obviously not the case.  However, Hofgen's reality is very different from the audiences, which leads to him falling into the Nazi trap.  
+
+%------------------------------------------------
+
+
+
+\section*{Conclusion}
+
+In her \textit{Fascinating Fascism}, Susan Sontag argues that the greatest artists attain a sublime neutrality \cite{Sontag}.  Whether this is actually possible for artists living under authoritarian regimes is an excellent question to conclude this paper with.  When Hofgen tries to claim innocence as simply being an artist, it's clear to the audience and the others around him that this is not true.  It's important to remember though, that for Hofgen, ingratiation with the Nazi party in Germany was essential to his success as an actor in the public sphere.  In fact, Hofgen as an actor was bound to his artist in a way that is rather familiar for pop-culture artists.  In order to reach a mass appeal, Hofgen had to be in tune with the Ideology of his time.  However, this is not the case for all artists.  Tadeusz Borowski wrote a collection of short stories titled \textit{This Way for the Gas, Ladies and Gentlemen}.  In it, Borowski writes with intense cynicism and sarcasm about his experience in Auschwitz.  Borowski chooses to create a muse for himself though, in the form of Tadek, who, as a survivalist with a hard shell is a counter personality to Borowski himself who by most accounts had been a leader and a noble individual during his time at Auschwitz \cite{Lecture3}.  Whether this was for Borowski an attempt to escape from the Ideology of Nazi Germany is unclear, but we can think to what Zizek writes about escaping Ideology.  For Zizek, the only way to escape it is to exist in an intensely skeptical, nihilistic mindset.  This may have been Borowski's goal in \textit{This Way for the Gas, Ladies and Gentlemen}.  Whether a nihilistic existence was the ultimate result of Eichmann and Hofgen's interaction with Ideology is something to think about.  
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\bibliographystyle{unsrt}
+
+
+ \begin{thebibliography}{1}
+
+  \bibitem{Althusser}  Althusser, Louis, \textit{Ideology and Ideological State Apparatuses: Notes Towards an Investigation} in \textit{Lenin and Philosophy and Other Essays}  (1970).
+
+  \bibitem{Arendt} Arendt, Hannah. Eichmann in Jerusalem: \textit{A Report on the Banality of Evil.} Penguin, 2006. 
+  
+  \bibitem{Borowski} Borowski, Tadeusz. This Way for the Gas, Ladies and Gentlemen. Penguin, 1976
+
+  
+  \bibitem{Imre} Imre, \textit{Aniko White man, white mask: Mephisto meets Venus,} Screen 40:4. Winter 1999. 
+  
+  \bibitem{Mann} Mann, Klaus. \textit{Mephisto} (tr. Robin Smyth). Penguin, 1995. 
+
+  \bibitem{Schnapp} Schnapp, Jeffrey T. \textit{18 BL: Fascist Mass Spectacle.} Representations, 1993, 89:125. 
+
+  \bibitem{Sontag} Sontag, Susan. \textit{Fascinating Fascism.} The New York Review of Books, February 1975.   
+  
+  \bibitem{Zizek} Zizek, Slavoj \textit{The Sublime Object of Ideology}. Verso 2008, Chapter One.
+  
+  \bibitem{FiennesFilm} \textit{A Pervert's Guide to Ideology}, film by Sophia Fiennes with Slavoj Zizek
+  
+  \bibitem{MephistoFilm} \textit{Mephisto}, film by Istvan Szabo 
+    
+  \bibitem{TriumphFilm} \textit{Triumph of the Will}, film by Leni Riefenstahl     
+    
+    
+  \bibitem{Lecture1} Wedeen, Lisa, and Monika Nalepa. "Introduction." Lecture, Popular Culture, Art and Autocracy Seminar, Wilder House, Chicago, September 30, 2015.
+
+  \bibitem{Lecture2} Wedeen, Lisa, and Monika Nalepa. "Performing Under Autocracy --Fascism." Lecture, Popular Culture, Art and Autocracy Seminar, Wilder House, Chicago, October 7, 2015.
+
+  \bibitem{Lecture3} Wedeen, Lisa, and Monika Nalepa. "Fascism as Spectacle and as Ordinariness." Lecture, Popular Culture, Art and Autocracy Seminar, Wilder House, Chicago, October 14, 2015.
+
+  \bibitem{Lecture4} Wedeen, Lisa, and Monika Nalepa. "Why Compliance." Lecture, Popular Culture, Art and Autocracy Seminar, Wilder House, Chicago, October 21, 2015.
+
+
+
+
+
+  \end{thebibliography}
+%----------------------------------------------------------------------------------------
+
+\end{document}

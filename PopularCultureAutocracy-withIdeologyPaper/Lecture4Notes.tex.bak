@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE University of Chicago \par}
+	\vspace{1cm}
+	{\scshape\Large Popular Culture and Autocratic Governments\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Week 4 Seminar: Why Compliance?\par}
+	\vspace{1cm}
+	{\Large\itshape Andrew Dong\par}
+	\vspace{2cm}
+	
+	\vfill
+
+
+\begin{abstract}
+Readings: 
+Havel, Vaclav. The Power of the Powerless (Routledge Revivals): Citizens Against the State in Central-Eastern Europe. Routledge, 2009. (essay by same title)
+Kuran, Timur. “Now out of Never: The Element of Surprise in the East European Revolution of 1989.” World Politics 44, no. 01 (1991): 7–48.
+ 	Svolik, Milan W. The Politics of Authoritarian Rule. Cambridge University Press, 2012. (Chapter 3) 
+Wintrobe, Ronald, and others. The Political Economy of Dictatorship. Cambridge University Press, 1998 (Chapter 11)
+\end{abstract}
+
+\vfill
+
+% Bottom of the page
+	Professor~Lisa \textsc{Wedeen}
+	\vspace{5 mm}
+	\\{\large \today\par}
+\end{titlepage}
+
+\title{Popular Culture Art and Autocracy Week 7}
+\author{Andrew Dong}
+
+\maketitle
+
+
+\section{Introduction}
+
+Introduction
+
+
+
+
+\section{Conclusion}
+
+Concluding Thoughts
+
+\end{document}

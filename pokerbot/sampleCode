@@ -1,0 +1,52 @@
+Here's some sample code. Please note, in order for the AI to work properly there must be a subfolder titled results with four .txt files included - pairs.txt, flop.txt, turn.txt and river.txt. Additionally, it is HIGHLY recommended that a large number of simulations be set in gameSetup.py. The following is running with a relatively small number.
+
+...
+Simulating Round 19981
+Simulating Round 19982
+Simulating Round 19983
+Simulating Round 19984
+Simulating Round 19985
+Simulating Round 19986
+Simulating Round 19987
+Simulating Round 19988
+Simulating Round 19989
+Simulating Round 19990
+Simulating Round 19991
+Simulating Round 19992
+Simulating Round 19993
+Simulating Round 19994
+Simulating Round 19995
+Simulating Round 19996
+Simulating Round 19997
+Simulating Round 19998
+Simulating Round 19999
+Simulating Round 20000
+Pocket data...
+Flop data...
+Turn data...
+River data...
+andrewdong@andrewdong-ThinkPad-T540p:~/Desktop/cs162/WikiWork/FinalPoker$ python mainInterface.py
+Welcome to Texas Holdem!  Possible actions include 'check', 'fold', 'call', and 'bet'.  Good luck!
+
+Player 1 Hand:
+['diamond', 12]
+['club', 13]
+--> 'check'
+Bot: check
+---Flop---
+Player 0 Hand:
+['heart', 6]
+['club', 8]
+['club', 11]
+--> 'check'
+Bot: check
+---Turn---
+Player 0 Hand:
+['heart', 6]
+['club', 8]
+['heart', 10]
+['club', 11]
+--> 'bet'
+pokerBot: fold
+Congratulations!  Player 1 won!
+andrewdong@andrewdong-ThinkPad-T540p:~/Desktop/cs162/WikiWork/FinalPoker$ 

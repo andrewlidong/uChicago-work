@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE University of Chicago \par}
+	\vspace{1cm}
+	{\scshape\Large Popular Culture and Autocratic Governments\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Week 5 Seminar: Introduction \par}
+	\vspace{1cm}
+	{\Large\itshape Andrew Dong\par}
+	\vspace{2cm}
+	
+	\vfill
+
+
+\begin{abstract}
+“The Lives of Others” film by Florian Henckel von Donnersmarck 
+
+Readings: 
+Glaeser, Andreas. Political Epistemics: The Secret Police, the Opposition, and the End of East German Socialism. University of Chicago Press, 2011. (Parts III and IV) 
+Recommended: Cooke, Paul. "Watching the Stasi: Authenticity, Ostalgie and History in Florian Henckel von Donnersmarck’s The Lives of Others (2006)." New Directions in German Cinema (2011): 111-127. 
+
+\end{abstract}
+
+\vfill
+
+% Bottom of the page
+	Professor~Lisa \textsc{Wedeen}
+	\vspace{5 mm}
+	\\{\large \today\par}
+\end{titlepage}
+
+\title{Popular Culture Art and Autocracy Week 7}
+\author{Andrew Dong}
+
+\maketitle
+
+
+\section{Introduction}
+
+Introduction
+
+
+
+
+\section{Conclusion}
+
+Concluding Thoughts
+
+\end{document}

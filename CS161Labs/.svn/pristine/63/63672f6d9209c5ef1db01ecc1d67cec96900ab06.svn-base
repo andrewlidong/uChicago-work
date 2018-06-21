@@ -1,0 +1,24 @@
+Lab7: Mancala Part One
+
+We will be building a computer version of the board game Mancala.  
+The first part of the lab will involve two players against each other
+The second part will involve a computer player.  
+
+Gameplay: 
+A player chooses pits with stones in it on their side of the board.  The stones are then removed and placed, one-by-one in the pit following that pit, in counterclockwise order.  The player does place stones in her own store, and in her opponent's pits, but not in her opponent's store.  Players alternate turns with one exception - if the last stone he places is in his own store, that player goes again.  
+
+Endgame: 
+The game is over when, after a player moves, all of his pits are empty.  A player's score is the sum of the number of stones in his store and the number of stones on his side of the board.  
+
+Game Logic: 
+In order to represent the state of the Mancala game before or after a player's turn, we must keep track of: 
+
+	1. number of stones in each pit
+	2. number of stones in each player's store
+	3. which player's turn it is
+
+MancalaBoard.hs shows data structures and the functions which access them.  
+
+Note: we need to test every function.  
+
+We will implement all missing functions in MancalaBoard.hs

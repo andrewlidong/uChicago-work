@@ -1,0 +1,130 @@
+\input{/home/andrewdong/Desktop/NumberTheoryFall/PerlmanSource.tex}
+\begin{document}
+\title{STAT 24410 Assignment 5}
+\author{Andrew Dong}
+\maketitle
+
+\Hproblem{1.1}
+Prove that for any ideal $J$, the radical $\sqrt{J}$ is also an ideal.
+
+  \begin{proof}
+    Let $a,b \in \sqrt{J}$ with $a^{m},b^{n} \in J$ for integers $m,n \geq 2$. Then
+      \begin{align*}
+        (a+b)^{m+n} = \sum_{j=0}^{m+n} \binom{m+n}{j}a^{j}b^{m+n-j}.
+      \end{align*}
+    Each term in the sum must have a factor of either $a^{m}$ or $b^{n}$, and since $J$ is
+    an ideal each term is thus in $J$, and in turn so is the sum. Thus $\sqrt{J}$ is an additive group.
+    
+    Let $a \in \sqrt{J}$ with $a^{m} \in J$ and let $g \in A$. Then $(ag)^{m} = a^{m}g^{m}$ contains
+    a factor of $a^{m}$ and is thus in $J$. Then $J$ is an ideal.
+  \end{proof}
+
+\Hproblem{1.2}
+Let $V:= V(I) \subset \bbA_{k}^{3}$ be the algebraic set corresponding to the ideal
+$I := (x^{2}-yz,xz-x)$. Decompose $V$ into its irreducible components.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+\end{document}

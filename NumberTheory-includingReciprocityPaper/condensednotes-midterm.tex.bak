@@ -1,0 +1,850 @@
+\documentclass[10]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{hyperref}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{exm}[thm]{Example}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{exr}[thm]{Exercise}
+\newtheorem{problem}[thm]{Problem}
+
+\newtheorem{rems}{Remarks}
+
+\newtheoremstyle{nonum}{}{}{\itshape}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{nonum}
+\newtheorem{nonumthm}{}
+
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\rk}{rank} \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\supp}{supp} \DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\cl}{cl} \DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\dv}{div} \DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\dist}{dist} \DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\codim}{codim} \DeclareMathOperator{\lk}{lk}
+\DeclareMathOperator{\intr}{int} \DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Hom}{Hom} \DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\End}{End} \DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Ind}{Ind} \DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Var}{Var} \DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\graph}{graph} \DeclareMathOperator{\Crit}{Crit}
+\DeclareMathOperator{\length}{length} \DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Sp}{Sp} \DeclareMathOperator{\Cal}{Cal}
+\DeclareMathOperator{\rot}{rot} \DeclareMathOperator{\PSL}{PSL}
+\renewcommand{\sp}{\mathfrak{sp}} \DeclareMathOperator{\Area}{Area}
+\DeclareMathOperator{\CovDim}{CovDim} \DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\closure}{Closure}\DeclareMathOperator{\pb}{pb}
+\DeclareMathOperator{\CZ}{CZ} \DeclareMathOperator{\GW}{GW}
+\DeclareMathOperator{\conv}{conv}
+
+% Text fonts %
+\newcommand{\tit}{\textit}
+\newcommand{\trm}{\textrm}
+\newcommand{\tbf}{\textbf}
+
+% Math fonts %
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mbbm}{\mathbbm}
+\newcommand{\mcal}{\mathcal}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\msc}{\mathscr}
+\newcommand{\mitl}{\mathit}
+\newcommand{\mfrak}{\mathfrak}
+
+% Calligraphic %
+
+\newcommand{\cA}{{\mathcal{A}}}
+\newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}
+\newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}
+\newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}
+\newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}
+\newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}
+\newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}
+\newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}
+\newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}
+\newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}
+
+% Greek %
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
+\renewcommand{\th}{\theta}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\et}{\eta}
+\newcommand{\ka}{\kappa}
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\ro}{\rho}
+\newcommand{\sig}{\sigma}
+\newcommand{\Sig}{\Sigma}
+\newcommand{\si}{\sigma}
+\newcommand{\Si}{\Sigma}
+\newcommand{\ph}{\varphi}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+\newcommand{\na}{\nabla}
+\newcommand{\ze}{\zeta}
+\newcommand{\tPsi}{{\widetilde{\Psi}}}
+
+% Sets %
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\T}{\mathbb T}
+\newcommand{\bH}{\mathbb{H} }
+\newcommand{\eset}{\emptyset}
+\newcommand{\sub}{\subset}
+\newcommand{\setm}{\setminus}
+\newcommand{\nin}{\notin}
+\newcommand{\bcup}{\bigcup}
+\newcommand{\bcap}{\bigcap}
+\newcommand{\union}[2]{\overset{#2}{\underset{#1}{\bigcup}}}
+\newcommand{\inter}[2]{\overset{#2}{\underset{#1}{\bigcap}}}
+%\newcommand{\inc}{\hookrightarrow}
+
+% Functions %
+\newcommand{\id}{\mathbbm 1}               % Identity / Indicator %
+\newcommand{\rest}[2]{#1\bigr\vert_{#2}}   % Restriction %
+
+% Linear stuff %
+\newcommand{\Lin}{\mathcal L}
+\newcommand{\ip}[1]{\langle {#1}\rangle}     % scalar product %
+\newcommand{\ten}{\otimes}              % Tensor product %
+
+% Analysis %
+\newcommand{\pa}{\partial}
+\newcommand{\pd}[2]{\frac{\pa #1}{\pa #2}} % Partial derivative %
+\renewcommand{\d}{d}
+\newcommand{\dx}{\d x}
+\newcommand{\dt}{\d t}
+\newcommand{\du}{\d u}
+\newcommand{\ds}{\d s}
+\newcommand{\ddt}{\frac{\d}{ \dt} }
+\newcommand{\ddtat}[1]{\left.\ddt \right|_{t=#1}}
+\newcommand{\at}[1]{\biggl. \biggr|_{#1} } % Evaluate at
+%\newcommand{\conv}{\longrightarrow}        % Limit %
+\newcommand{\xconv}{\xrightarrow}
+\newcommand{\convas}[1]{\xrightarrow[#1]{} }
+\newcommand{\nconv}{\nrightarrow}
+\newcommand{\const}{\equiv}
+\newcommand{\nconst}{\not \equiv}
+\newcommand{\we}{\wedge}
+\newcommand{\rv}{\mathrm{v}} % vector field
+
+% Limits %
+\newcommand{\limn}{\displaystyle \lim_{n \to \infty}}
+\newcommand{\limk}{\displaystyle \lim_{k \to \infty}}
+\newcommand{\convn}{\xrightarrow[n \to \infty]{}}
+\newcommand{\convk}{\xrightarrow[k \to \infty]{}}
+\newcommand{\convi}{\xrightarrow[i \to \infty]{}}
+\newcommand{\limx}[1]{\displaystyle\lim_{x \to #1}}
+\newcommand{\limt}[1]{\displaystyle \lim_{t \to #1}}
+\newcommand{\convx}[1]{\displaystyle \xrightarrow[x \to #1]{}}
+\newcommand{\convt}[1]{\displaystyle \xrightarrow[t \to #1]{}}
+
+% Symplectic stuff %
+\newcommand{\pois}[1]{\{#1\}} % Poisson brackets %
+\DeclareMathOperator{\sgrad}{sgrad}
+\newcommand{\Ham}{\mrm{Ham}}
+\newcommand{\Symp}{\mrm{Symp}}
+\newcommand{\tCal}{\widetilde{\Cal}}
+\newcommand{\tHam}{\widetilde{\Ham}}
+
+% Misc %
+\newcommand{\ol}{\overline}
+\newcommand{\til}{\tilde}
+\newcommand{\wtil}{\widetilde}
+\newcommand{\ul}{\underline}
+\newcommand{\imp}{\Rightarrow}
+\newcommand{\limp}{\Leftarrow}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\spc}{\,,\,}
+\newcommand{\Spc}{\,,\,}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\trans}{\pitchfork}
+
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+
+\newtheorem{exmp}[thm]{Example}
+\theoremstyle{remark}
+\newtheorem{lem*}{Lemma}
+\newtheorem*{note}{Note}
+\newtheorem*{cntr}{Counterexample}
+
+\usepackage[top=.5cm, bottom=.5cm, left=.5cm, right=.5cm]{geometry}
+\begin{document}
+
+\begin{thm}
+Let $M$ be a compact manifold and let $g \colon M \to \R^k$ be a smooth map, with $k \geq 2n+1$. Then, for every $\eps > 0$ there exists an a smooth embedding $g' \colon M \to \R^k$, such that $\sup_{x \in M}|g(x)=g'(x)| < \eps$.
+\end{thm}
+
+% \begin{defn}\label{def-bdry-1}
+%Suppose that $f \colon M' \to \R$ is a smooth function and $0 \in f(M')$ is a regular value. Then $M = \{x \in M' \colon f (x) \leq 0 \}$ is called a \emph{manifold with boundary}, and $\pa M = \{x \colon f(x) = 0\}$ is its boundary.
+%\end{defn}
+%\begin{defn}
+%A second countable Hausdorff space $M$ is called a manifold with boundary if for every $x \in M$ one of the following holds:
+%\begin{enumerate}
+%\item There is a anighbourhood $U$ of $x$ and a homeomorphism $\phi \colon U \to \phi(U) \sub \R^n$.
+%\item There is a anighbourhood $U$ of $x$ and a homeomorphism $\phi \colon U \to \phi(U) \sub \R^n_+$ such that $\ph(x) \in \pa \R^n_+$.
+%\end{enumerate}
+%\end{defn}
+%Let $f \colon M^n \to N^n$ be a smooth map, and let $\om$ be an $n$-form on $N$. Define its \emph{pull-back} by $f$, $f^\om$ to be the $n$-form on $M$ defined by
+%$$
+%f^*\om(\xi_1, \ldots, \xi_n) = \om(f_* \xi_1, \ldots f_* \xi_n).
+%$$
+%\begin{thm}[Morse-Sard]
+%Let $f \colon X \to Y$ be a smooth map between manifold. Then the set of all critical value of $f$ has measure zero in $Y$.
+%\end{thm}
+%\begin{defn}
+%Let $f \colon M \to N$ be smooth, and let $V \sub N$ be a submanifold. We say that $f$ is \emph{transversal} to $V$, denoted $f \trans V$, if either $f^{-1}(V) = \eset$, or for every $x \in f^{-1}(V)$ one has
+%$$
+%f_* (T_xM) + T_{f(x)}V = T_{f(x)}N.
+%$$
+%\end{defn}
+%\begin{exr}
+%Suppose $f \colon M \to N$ is transversal to $V \sub N$. Prove that $f^{-1}(V)$ is a submanifold of $M$, of the same codimension as that of $V$, i.e. $\codim f^{-1}(V) = \codim V$.
+%\end{exr}
+%
+%
+%\begin{exr}
+%Suppose $M$ is a manifold with boundary, $V \sub N$ is a submanifold,  and $f \colon M \to N$ satisfies
+%$$
+%f \trans V \text{ and } \rest{f}{\pa M} \trans V.
+%$$
+%Prove that $f^{-1}(V) \sub M$ is a submanifold with boundary, with $\codim f^{-1}(V) = \codim V$, and $\pa f^{-1}(V) = f^{-1}(V) \cap \pa M$.
+%\end{exr}
+\begin{thm}[Parametric transversality theorem]
+Suppose $F \colon X \times S \to Y$ is smooth, and $Z \sub Y$ is a submanifold. Denote $F_s \colon X \to Y$ by $F_s(\cdot) = F(s, \cdot)$. Suppose that $F \trans Z$. Then for almost all $s \in S$, $F_s \trans V$.
+\end{thm}
+\begin{lem}\label{lem-key}
+If $s \in S$ is a regular value of $\pi$ then $F_s \trans Z$.
+\end{lem}
+%\begin{exm}[Aside: implicit function theorem and tangent spaces]\label{exm-calc}
+%Suppose that $f \colon X^p \to Y^q$ is a smooth map, and $y \in Y$ is a regular value of $f$ with $P := f^{-1}(y) \neq \eset$. In this case we know that $P$ is a submanifold of $X$ of dimension $p-q$. Let us see what its tangent space is. Let $\xi \in T_xP$. By definition, $\xi = [\ga]$, where $\ga \colon (-1,1) \to P$ is a curve, with $\ga(0) = x$. Therefore, for all $t \in (-1,1)$, $\ga(t) \in P$, so in particular, $f(\ga(t)) = y$. Differentiating, we get,
+%$$
+%f_* \xi = \ddtat{0} f \circ \ga(t) = 0,
+%$$
+%Therefore, $T_x P \sub \ker f_*$. Now, the two are linear subspaces of $T_xM$ of equal dimensions, so in fact $T_xP = \ker f_*$.
+%\end{exm}
+
+\begin{proof}[Proof of Lemma \ref{lem-key}]
+Since the claim is local, we work in local coordinates. Let $(x,s)$ be coordinates on $X \times S$, and choose coordinates $(u,z)$ on $Y$ such that $z$ is the coordinate on $Z$ and locally $Z$ is given be $\{(z,u) \colon u = 0\}$ and $F(0,0) = 0$. In these coordinates we can write
+$$
+F(x,s) = (A(x,s), B(x,s)).
+$$
+$$
+W = F^{-1}(Z) = \{(x,s) \colon A(x,s) = 0\}.
+$$
+By Example \ref{exm-calc},
+$
+T_0W = \left\{(\dot{x}, \dot{s}) \in T_0X \times T_0S \colon \pd{A}{x}\cdot \dot{x} + \pd{A}{s}\cdot\dot{s} = 0 \right\}.
+$
+
+\begin{enumerate}
+\item\label{enum-1} The transversality of $F$ to $Z$ means that $A_*(0)$ is onto. Indeed, by our our choice of coordinates,
+$
+T_0Z = \{(0, \dot{z})\} \sub T_0Y = \{(\dot{u}, \dot{z})\}.
+$
+Additionally,
+$
+F_*(T_0 X \times S) = \bigl( A_*(T_0 X \times S) , B_* (T_0 X \times S) \bigr).
+$
+Therefore, the condition
+$
+F_*(T_0 X \times S) + T_0Z = T_0Y
+$
+translates to surjectivity of $A_*(0)$. Thus for any $\dot{u}$ there exist $\dot{x}, \dot{s}$ such that
+$
+\pd{A}{x} \cdot\dot{x} + \pd{A}{s}\cdot\dot{s} = \dot{u}.
+$
+\item\label{enum-2} By assumption, $s=0$ is a regular value of the projection $\rest{\pi}{W}$. Now,
+$
+\pi_* \colon T_0W \to T_0S, \quad (\dot{x}, \dot{s}) \mapsto \dot{s}.
+$
+Therefore, the surjectivity of $(\rest{\pi}{W})_*$ means that for any $\dot{s}$ we can find $\dot{x}$ such that $(\dot{x}, \dot{s}) \in T_0W$, that is, such that
+$
+\pd{A}{x} \dot{x} + \pd{A}{s}\dot{s} = 0.
+$
+\end{enumerate}
+Finally, our goal is to prove the transversality of $F_0$ to $Z$. As before, this amounts to requiring that $\disp\pd{A}{x}(0)$ is surjective, that is, for any $\dot{u}$ we should find $\dot{x}$ such that
+$
+\disp\pd{A}{x}\cdot \dot{x} = \dot{u}.
+$
+So, let $\dot{u}$. By condition \eqref{enum-1}, we have $\dot{x}_1, \dot{s}$ such that
+$
+\pd{A}{x} \cdot\dot{x}_1 + \pd{A}{s} \cdot\dot{s} = \dot{u}.
+$
+Now by condition \eqref{enum-2} we have $\dot{x}_2$ such that
+$
+\pd{A}{x}\cdot\dot{x}_2 + \pd{A}{s}\cdot \dot{s}= \dot{u}.
+$
+Subtracting the two equations, we find that
+$
+\pd{A}{x} \cdot (\dot{x}_1 - \dot{x}_2) = \dot{u}.
+$
+This proves the surjectivity of $\disp\pd{A}{x}(0)$ and hence the lemma.
+\end{proof}
+
+\begin{thm}[Approximation theorem]\label{thm-approx}
+Let  $f \colon X \to Y$ be smooth, and let $Z \sub Y$ be a submanifold. Then there is $N \in \N$ and a smooth $F \colon X \times D^N \to Y$ so that $F \trans Z$ and $F(x, 0) = f(x)$.
+\end{thm}
+Therefore, by the parametric transversality theorem, $F_s \trans Z$ for almost all $s \in S$. In particular, we can find $s_i \conv 0$ such that $F_{s_i} \trans Z$. In a suitably chosen topology on the space of smooth maps $X \to Y$, one obtains $F_{s_i} \conv f$ as $s_i \conv 0$. Moreover, we note that by taking $s \to 0$ we in fact obtain a homotopy $F_s$ such that $F_0 = 0$ and $F_s \trans Z$ for almost any $s$. Thus Theorem \ref{thm-approx} states that \emph{any map between manifolds can be approximated by homotopic maps transversal to $Z$}.
+
+For the proof of Theorem \ref{thm-approx} we require the notion of a \emph{tubular neighbourhood}: we assume that $Y$ is compact, and consider it embedded in $\R^N$. Let
+$
+U_{\eps}(Y) = \{ w \in \R^N \colon d(w, Y) < \eps\} .
+$
+Consider the \emph{normal bundle} to $Y$ in $\R^N$:
+$
+NY = \{(y, \xi) \colon y \in Y, \, \xi \in T_y\R^N, \, \xi \perp Y_y\R^N\},
+$
+and its $\eps$-disc bundle:
+$
+N_{\eps}Y = \{(y, \xi) \in NY \colon |\xi| < \eps\}.
+$
+
+\begin{exr}
+Show that for small $\eps > 0$ the map
+$
+N_{\eps}Y \to U_{\eps}(Y), \quad (y, \xi) \mapsto  y+\xi
+$
+is a diffeomorphism.
+\end{exr}
+
+\begin{exr}
+Let $\pi \colon N_{\eps}Y \to Y$  be the projection $(y, \xi) \mapsto y$. Prove that $\pi$ is a submersion.
+\end{exr}
+
+Next, define
+$
+G \colon Y \times D^N \to Y, \quad (y, \eps) \mapsto \pi(y + \eps \xi).
+$
+
+\begin{exr}\label{exr-G-sub}
+Prove that for any $y \in Y$, the map
+$
+D^N \to Y, \quad \xi \mapsto G(y, \xi)
+$
+is a submersion.
+\end{exr}
+
+\begin{proof}[Proof of Theorem \ref{thm-approx}]
+Define
+$
+F \colon X \times D^N \to Y, \quad F(x, \xi) = G(f(x), \xi) = \pi(f(x) + \eps \xi).
+$
+Note that $F(x, 0) = f(x)$. By Exercise \ref{exr-G-sub},
+$
+\pd{F}{\xi}(x, \xi) = \pd{G}{\xi}(f(x), \xi) \colon T_{\xi}D^N \to T_{F(x, \xi)}Y
+$
+is onto for all $(x, \xi)$. In particular, $F \trans Z$.
+\end{proof}
+
+\paragraph{Intersection Index} First, a bit of terminology: A compact and boundaryless manifold is called \emph{closed}.
+Define the \emph{intersection index} of $f$ and $Z$ by
+$
+I(f,Z) = \sum_{x \in f^{-1}(Z)} (f_* T_xX) \circ Z.
+$
+
+%\begin{thm}\label{hom-invar}
+%Assume that $f, g \colon X \to Y$ are homotopic and transversal to $Z$, Then $I(f, Z) = I(g, Z)$.
+%\end{thm}
+%Assume we're given any $f \colon X \to Y$ and $Z \sub Y$, not necessarily transversal. By the transversality theorem, we can approximate $f$ by a homotopic map $f' \colon X \to Y$ which is transversal to $Z$. Then we can define $I(f, Z) = I(f', Z)$. By Theorem \ref{hom-invar}, this is independent of the approximating map $f'$. In particular, this allows up to define, for a submanifold $X \sub Z$, the \emph{self-intersection index} $X \circ X$.
+
+\begin{lem}\label{lem-bdry}
+Assume that $X = \pa W$ with $W$ oriented and $X$ oriented with the boundary orientation. Let $F \colon X \to Y$ such that $F \trans Z$ and $\rest{F}{X}\trans Z$. Then $I(\rest{F}{X}, Z) = 0$.
+\end{lem}
+
+\begin{thm}[Classification of $1$-manifolds]\label{lem-1-mfd}
+Let $M$ be a $1$-dimensional compact connected manifold with boundary. Then $M$ is diffeomorphic either to $S^1$ or $[0,1]$.
+\end{thm}
+%
+%\begin{rem}\label{rem-ors}
+%Before we prove the lemma, let's analyze what happens with boundary and product orientations in detail. Consider $\R^n \times [0,1]$ with the standard product orientation, and equip $\R^n \times \{0\}$ and $\R^n \times \{1\}$ with the induced boundary orientation. Let $x_- = (0,0)$ and $x_+ = (0, 1)$ be the endpoints of the segment $\{0\} \times [0,1]$. Then by definition of all orientations involved, $T_{x_+} \R^n \circ T_{x_+} [0,1] = 1 \quad \text{but} \quad T_{x_-} \R^n \circ T_{x_-} [0,1] = -1.$ In other words, in terms of the product orientation, $\R^n \times \{0\}$ is negatively oriented, and $\R^n \times \{1\}$ is positively oriented.
+%\end{rem}
+
+\begin{lem}\label{lem-bdry}
+Assume that $X = \pa W$ with $W$ oriented and $X$ oriented with the boundary orientation. Let $F \colon X \to Y$ such that $F \trans Z$ and $\rest{F}{X}\trans Z$. Then $I(\rest{F}{X}, Z) = 0$.
+\end{lem}
+\begin{proof}[Proof of Lemma \ref{lem-bdry}]
+Denote $f = \rest{F}{X}$ and $\ga = F^{-1}(Z)$. If $ \ga= \eset$ then no problem, so assume $\ga \neq \eset$. Since $\dim W = \dim X + 1$, $\ga$ is a $1$-dimensional submanifold, and by an exercise from last time, $\pa \ga = F^{-1}(Z) \cap X$, and by definition, this is just $f^{-1}(Z)$. Now, by Lemma \ref{lem-1-mfd}, $\ga$ a finite union of circles and intervals, and hence each component of $\ga$ is either boundaryless or has exactly two boundary points, denote them $x_{\pm}$. For each such point $x$ put
+$
+\eps(x) = f_*(T_x X) \circ T_{f(x)}Z.
+$
+We will show that for any such pair $\eps(x_+)+\eps(x_-) = 0$. Therefore we can assume wlog that $\ga \approx [0,1]$, and $\pa \ga = f^{-1}(Z)$ contains exactly two point. Choose a parametrization $\ga \colon [0,1] \to X$ such that
+$\ga(0) = x_-, \,\, \ga(0) = x_+, \,\, \text{ and } \,\, \dot{\ga}(t) \neq 0 \,\, \forall t \in [0,1].$
+Note that, since $\dim F_{x_{\pm}}X + \dim T_{f(x_{\pm})}Z = \dim T_{f(x_{\pm})}Y$, the transversality of $f$ and $Z$ implies that $f_*(T_{x_{\pm}}) \cap T_{f(x_{\pm})} = \{0\}$. In particular, since $\rest{F_*}{T_{x_{\pm}} X} = f_*$, $F_*(T_{x_{\pm}}) \cap T_{f(x_{\pm})} = \{0\}$. On the other hand, note that since $F(\ga(t)) \in Z$ for all $t \in [0,1]$, we have $F_*\dot{\ga}(t) \in T_{F(\ga(t))}Z$. In particular,
+$F_*\dot{\ga}(0) \in T_{F(x_-)}Z, \quad F_*\dot{\ga}(1) \in T_{F(x_+)}Z.$
+ Therefore, $\dot{\ga}(0) \nin T_{x_-}X$ and $\dot{\ga}(1) \nin T_{x_+}X$, which allows us to pick a Riemannian metric on $W$ such that
+ $\dot{\ga}(0) \perp T_{x_-}X \text{ and }\dot{\ga}(1) \perp T_{x_+}X.$
+Set $E(t) = \{\dot{\ga}(t)\}^{\perp}$. By definition, $E(0) = T_{x_-}X$ and $E(1) = T_{x_+}X$. Observe that since $F \trans Z$ and $F_* \dot{\ga}(t) \in T_{F(\ga(t))}Z$,
+$
+F_*(E(t)) \trans T_{F(\ga(t))}Z \quad \forall t \in [0,1].
+$
+Thus the function
+$
+t \mapsto F_*(E(t)) \circ T_{F(\ga(t))}Z
+$
+is defined for all $t \in [0,1]$ and continuous. Therefore, it is constant. In particular,
+$
+F_*(T_{x_-}X) \circ T_{F(\ga(0))}Z = F_*(T_{x_+}X) \circ T_{F(\ga(1))}Z.
+$
+However, we note that this function is constant when considered with the \emph{product} orientation. In view of Remark \ref{rem-ors}, in terms of the induced orientation on $X$,
+$
+-f_*(T_{x_-}X) \circ T_{f(\ga(0))}Z = f_*(T_{x_+}X) \circ T_{f(\ga(1))}Z.
+$
+Therefore, $\eps(x_-) + \eps(x_+) = 0$ and the lemma is proved.
+\end{proof}
+
+
+
+\begin{proof}[Proof of Theorem \ref{hom-invar}]
+Suppose $f, g \colon X \to Y$ are homotopic and transversal to $Z$. Put $W = X \times [0,1] $ and let $F \colon W \to Y$ be a homotopy between $f$ and $g$. By the approximation theorem, we may assume that $F \trans Z$. Now, considered with the boundary orientation,
+$
+\pa W = (X \times \{0\}, -or) \sqcup (X \times \{1\}, +or).
+$
+Now by Lemma \ref{lem-bdry}
+$
+I(f, Z, -or) + I(g, Z, +or) = 0,
+$
+thus with respect to the standard orientation on $X$, $I(f, Z) = I(g, Z)$.
+\end{proof}
+
+\begin{thm}\label{thm-deg-0}
+Let $W^{n+1}$, $V^n =\pa W$ as above, and assume $n \geq 2$. Let $f \colon W \to S^n$ be a smooth map with $\deg f = 0$. Then $f$ extends to $F \colon W \to S^n$.
+\end{thm}
+
+\begin{lem}[Homotopy extension]\label{lem-hom-ext}
+Suppose $f, g \colon V \to S^n$ are homotopic maps, and $g$ extends to $W$. Then $f$ extends as well.
+\end{lem}
+%This is left as an exercise. Here's the idea: Take a tubular nighbourhood $V \sub N \sub W$ of $N$. We may assume that $N \simeq V \times [0,1]$ - indeed, we saw that a tubular neighbourhood may be identified with the normal bundle of $V$. But since it admits a non-vanishing section - namely, the outward normal vector - it is trivial. Then, taking a homotopy $f_t(x)$ between $f$ and $g$ we can define a smooth $F \colon N \simeq V \times [0,1] \to S^n$ by $F(x,t) = f_t(x)$. We note that $\rest{F}{V \times \{0\}} = g$ and since $g$ extends to $W$ we can use this to extend $F$ to $W \setm N$, and then $\rest{F}{V} = f$.
+
+\begin{lem}\label{lem-ext}
+Let $M$ be a smooth manifold, $X \sub N$ a smooth subset and $f \colon X \to \R^d$ a smooth map. Then $f$ extends to a smooth $F \colon M \to \R^d$.
+\end{lem}
+
+\begin{lem}\label{lem-GL}
+Let $A_0, A_1 \in GL(n, \R)$ be two matrices such that $$\sign \det A_0 = \sign \det A_1.$$ Then there exists a smooth $G \colon D^n \times [0,1] \to \R^n$ such that
+$
+G(x, 0) = A_0 x, \quad G(x, 1) = A_1 x, \quad G(x,t) = 0 \iff x = 0.
+$
+\end{lem}
+
+\begin{proof}[Proof of Theorem \ref{thm-deg-0}]
+Let $y \in S^n$ be a regular value of $f$. If $f^{-1}(y) = \eset$, $f$ is not surjective, and hence since the sphere with one point removed is contractible, $f$ is homotopic to a constant map, which clearly extends to $W$, and hence by Lemma \ref{lem-hom-ext} $f$ extends to $W$ as well.
+
+Therefore, assume $f^{-1}(y) \neq \eset$. In this case, we know that it is a finite collection of points, say $x_1, \ldots, x_m$. Then
+$
+\deg (g) = \sum_j \eps(x_j),
+$
+where, as usual,
+$
+\eps(x_j) = \begin{cases}
++1, & D_{x_j}f \colon T_{x_j}V \to T_yS^n \text{ is orientation preserving},\\
+-1, & D_{x_j}f \colon T_{x_j}V \to T_yS^n \text{ is orientation reversing}.
+\end{cases}
+$
+Since $\deg f = 0$, $m=2k$ must be even, and we can assume that $\eps(x_{2j-1}) + \eps(x_{2j}) = 0$ for all $j$. Choose pair-wise non-intersecting embedded arcs $\ga_1, \ldots, \ga_k$ such that $\ga_j$ connects $x_{2j-1}$ to $x_{2j}$. This can be achieved since by the transversality theorem we may assume that each pair is transversal. But since each arc is one-dimensional and by assumption $\dim W \geq 3$, if $\ga_{2j-1} \trans \ga_{2j}$ they must be non-intersecting. Additionally, equip $W$ with a Riemannian metric such that $\ga_j \perp \pa W$ for all $j$ (as we did in the proof of the transversality theorem).
+
+For each $j$, let $U_j$ be a tubular neighbourhood of $\ga_j$, such that $U_j \simeq D^n \times  [0,1]$. Choose local coordinates near $x_j \in W$ which agree with the product orientation on $U_j \simeq D^n \times [0,1]$. Choose coordinates near $y \in S^n$ such that $f(x_j) = 0$ and write in local coordinates
+$
+f(q) = \pd{f}{q}(0) \cdot q + O(q^2).
+$
+Now, using a local homotopy near $x_j$, we can 'kill' the remainder term, so that in local coordinates
+$
+f(q) = \pd{f}{q}(0) \cdot q.
+$
+Now, the matrix $\pd{f}{q}(0)$ is simply the local coordinate expression for $D_{x_j}f$. Since $\eps(x_{2j-1}) = -\eps(x_{2j})$ we have, in our coordinates,
+$
+\sign \det D_{x_{2j-1}}f = \sign \det D_{x_{2j}}f.
+$
+The signs are reversed since the coordinates respect the \emph{product} orientation. Now, applying Lemma \ref{lem-GL} to each $U_j$ we can extend $f$ to
+$
+F' \colon V \cup \union{j=1}{k} U_j = Z \to S^n.
+$
+Note that the last condition in the lemma ensures that $F'(z) = y$ iff $z \in \ga_j$. Therefore, we have
+$
+F' \colon Z \setm \union{j}{} \ga_j \to S^n \setm \{y\} \simeq \R^n.
+$
+Now we can use Lemma \ref{lem-ext} to extend $F'$ to
+$
+F \colon W \setm \union{j}{}{\ga_j} \to S^n \setm\{y\}
+$
+Now we note that by construction, $F$ agrees with $F'$ on a neighbourhood of each $\ga_j$ and hence extends $f$ smoothly to $W$.
+\end{proof}
+
+\begin{defn}
+The \emph{Euler characteristic} of $X$ is the intersection index $X \circ X$ in $TX$. It is denoted $\chi(X)$.
+\end{defn}
+\begin{exm}
+We know that in general $A \circ B = (-1)^{\dim A \dim B} B \circ A$. Therefore, if $\dim X$ is odd, $\chi(X) = 0$.
+\end{exm}
+In general, if $X'$ is sufficiently close to $X$, then $X'$ is the graph of some vector field. This is since $\rest{\pi}{X} \colon X\to X$ is a diffeomorphism, so for small enough perturbations, $\rest{\pi}{X'} \colon X' \to X$ is still a diffeomorphism. Now, assume that $X'$ is the graph of a vector field $v$. Then $X \cap X'$ is in bijection with the set of zeroes of $v$. By definition,
+\begin{equation}\label{eq-euler}
+\chi(X) = X \circ X' = \sum_{x \colon v(x) = 0} \ind_x v,
+\end{equation}
+where
+$
+\ind_x v = T_x x \circ T_x \graph v.
+$
+\begin{prop}
+In local positively-oriented coordinates $(q_1, \ldots, q_n)$ on $X$,
+$
+\ind_q v = \sign \det \pd{v}{q}(q).
+$
+\end{prop}
+
+\begin{proof}
+Take the natural coordinates $(q_1, \ldots, q_n \dot{q}_1, \ldots, \dot{q}_n)$. Then $X = \{(q,0)\}$. Therefore, a positive basis for $T_qX$ is
+$
+\left(\pd{}{q_1}, \ldots, \pd{}{q_n} \right).
+$
+Additionally, $\graph v = \{(q, v(q))\}$. Therefore, a positive basis of $T_q \graph v$ is
+$
+\left( \pd{}{q_1} \oplus \pd{v}{q_1}, \ldots, \pd{}{q_n} \oplus \pd{v}{q_n} \right).
+$
+We need to determine whether the union of these bases is positively oriented with respect to the natural orientation on $TX$. Therefore, we form the $2n \times 2n$ matrix with these vectors as columns, and compute its determinant. We get, in block notation:
+$
+\det \begin{pmatrix}
+\id & \id \\ 0 & \pd{v}{q}
+\end{pmatrix}
+= \det \pd{v}{q}.
+$
+This proves the claim.
+\end{proof}
+\paragraph{The Gauss Map} Let $M$ be a closed surface embedded in $\mathbb{R}^3$.
+
+Let $v(x)$ define the outward unit normal to $M$.  $|v(x)|=1$, $v(x)\perp T_xM$.
+
+\begin{defn}
+The {\bf Gauss map} $M\to S^2$ is given by $x\mapsto v(x)$.
+\end{defn}
+\begin{thm}
+$\deg g=\frac{1}{2}\chi(M)$
+
+\end{thm}
+
+\begin{proof}
+Choose $v\in S^2$ s.t. both $v,-v$ are regular values of $g$.  Wlog, $v=[0,0,1]^t$.  For $q\in M$, let $w(q)=v(q)\times v$. $w(q)\in T_qM$.
+
+\begin{note} $w(q)=0\Leftrightarrow v(q)=\pm v$
+\end{note}
+
+Assume $v(q)=v$.
+Calculate $\mbox{ind}_q(w)$:
+
+In local coordinates, we may express $M$ as the set (picture) $z=\varphi (x,y)$.  Since $v(q)=v$ (the unit normal is pointing up), $\frac{\partial \varphi }{\partial x}(0)=\frac{\partial \varphi }{\partial y}(0)=0$.
+
+The parametrization $(x,y)\mapsto (x,y, \varphi (x,y))$ induces $\frac{\partial }{\partial x}\mapsto (1,0,\frac{\partial \varphi }{\partial x})$ and $\frac{\partial }{\partial y}\mapsto (0,1,\frac{\partial \varphi }{\partial y})$ on $T\mathbb{R}^2$.
+ Then $v(q)=\frac{n(q)}{|n(q)|}$
+$n(q):=\left(\begin{array}{ccc}  i & j & k \\
+1 & 0 & \frac{\partial \varphi }{\partial x} \\
+0 & 1  & \frac{\partial \varphi }{\partial y}
+\end{array}
+\right) =\left(\frac{-\partial \varphi }{\partial x}, -\frac{\partial \varphi }{\partial y } , 1\right)$
+
+Now we can compute $w(q)$:
+$
+  w(q)  = \frac{n(q)\times v}{ |n(q)| }    = \frac{1}{|n(q)|} \left|\begin{array}{ccc} i  & j & k\\ -\frac{\partial \varphi }{\partial x} & -\frac{\partial \varphi }{ \partial y} & 1\\ 0 & 0 & 1
+\end{array}\right| = \frac{1 }{|n(q)|} \left(-\frac{\partial \varphi }{ \partial y} , \frac{\partial \varphi }{\partial x} , 0 \right)
+$
+In local coordinates\\ $w(x,y)= \displaystyle\frac{\left(-\frac{\partial \varphi }{ \partial y}, \frac{\partial \varphi } { \partial x}\right)} { \left[1+ (\frac{\partial \varphi }{\partial x}) ^2 + (\frac{\partial \varphi }{ \partial y })^2 \right] ^{1/2}} $
+To compute $\left.\frac{\partial w }{\partial q}\right|_{q=0} $ we first note that $\left.\frac{\partial \varphi }{\partial y} \right|_{q=0}=\left.\frac{\partial \varphi }{\partial x} \right|_{q=0}=0$, so
+ $ \left. \frac{\partial w}{\partial q} \right|_{q=0} =\frac{1}{|n(q)|} \left( \begin{array}{cc} -\varphi _{yx} & -\varphi _{yy} \\ \varphi _{xx} & \varphi _{xy}
+\end{array}
+\right)
+$ $\Rightarrow \det \left(\left.\frac{\partial w}{\partial q}\right|_{q=0}\right) =-\varphi _{xy}^2+\varphi _{xx}\varphi _{yy} $
+
+
+\item Calculate the contribution of this point to $\deg (g)$.
+% $v(q)=v$, we will calculate $\det \frac{\partial v}{\partial q}$.
+
+$  v(v,y)=\frac{n(x,y)}{|n(x,y)|} = \frac{\left(-\frac{\partial \varphi }{\partial x}, -\frac{\partial \varphi }{\partial y}, 1\right)}{|n(x,y)|}$
+
+In $x,y$-coordinates on $M$ and $S^2$, we get
+$v(x,y)= \frac{\left(-\frac{\partial \varphi }{\partial x} , -\frac{\partial \varphi }{\partial y}\right)}{ |n(x,y)|}$
+
+Hence (using again that $\left.\frac{\partial \varphi }{\partial y} \right|_{q=0}=\left.\frac{\partial \varphi }{\partial x} \right|_{q=0}=0$),
+$\left.\frac{\partial v}{\partial q}\right|_{q=0}= \frac{1}{|n(x,y)|} \left(\begin{array}{cc} -\varphi _xx & -\varphi _{xy} \\ -\varphi _{yx} & -\varphi _{yy}
+\end{array} \right)$ $ \Rightarrow \det \left( \left.\frac{\partial v}{\partial q} \right|_{q=0}\right) = \varphi _{xx}\varphi _{yy} - \varphi _{xy}^2 $
+
+Finally
+$\chi(M) =\sum _{w(q)=0} \mbox{ind}_q(w)  =\sum_{v(q)=v} \mbox{ind}_q(v) + \sum_{v(q)=-v} \mbox{ind}_q(v)$\\
+$ =\sum_{v(q)=v}\mbox{sgn}\left(\det \frac{\partial v}{\partial q}\right)+\sum_{v(q)=-v} \mbox{sgn}\left(\det \frac{\partial v}{\partial q}\right) =2\deg (g)$
+\end{proof}
+Let $X^n$ be a closed, connected, oriented manifold.   Let $\Delta \subset X\times X $-diagonal. Note: $\Delta $ is teh graph of the identity map $X\to X$.
+
+Assume $f:X\to X$ is smooth.
+\begin{defn}
+A {\bf: fixed point} of $f$ is a point $x$ s.t. $f(x)=x$.  In $X\times X$, the set of fixed points is $\Gamma (f)\cap \Delta $, where $\Gamma (f)$ denotes the graph of $f$.
+\end{defn}
+
+\begin{defn}
+$L(f):= \Delta \circ \Gamma (f)$
+\end{defn}
+
+\begin{rem}
+$L(f)=L(g)$ if $f\sim g$, another remark$\#\mbox{Fix}(f)\geq |L(f)|$ generically.
+\end{rem}
+What does $\Gamma (f)\pitchfork _q \Delta $ mean?
+
+\begin{lem}
+$\Gamma (f)\pitchfork \Delta \Leftrightarrow \det\left(\frac{\partial f}{\partial q}(q)-1\right) \neq 0$.  Then $\Delta \circ \Gamma (f)=\mbox{sgn}\det\left(\frac{\partial f}{\partial q} q-1\right)$.
+\begin{proof}
+Near the fixed point $q$, we may approximate $f(q)$ by $\frac{\partial f}{\partial q}q$.  Locally:
+1. $X=\mathbb{R}^n$
+2. $f(x)=Ax$
+3.  $0$ is a fixed point and $A=\frac{\partial f}{\partial q}(q)$
+4. $\mathbb{R}^{2n}=\mathbb{R}^n\oplus \mathbb{R}^n$
+5. $\Delta =\mbox{Span} (e_1\oplus e_1,\ldots ,e_n\oplus e_n)$
+6. $\Gamma (f)= \mbox{Span} ( e_1\oplus Ae_1,\ldots ,e_nAe_n)$
+
+\[\Delta \circ \Gamma (f) =\mbox{sgn}\det(e_1\oplus e_1,\ldots , e_n\oplus e_n, e_1\oplus Ae_1,\ldots ,e_n\oplus Ae_n)
+ = \det \left(\begin{array}{cc}
+I & I \\ I & A
+\end{array}
+\right)  =\det \left(\begin{array}{cc} I&0 \\ I & A-I
+\end{array}
+\right)
+=\det (A-I)
+\]
+\end{proof}
+\end{lem}
+\begin{thm}
+$\chi (x)=L(1_X)$\end{thm}
+\begin{proof}
+We need to perturb $1_X$.  Choose a vector field $v$ on $X$.  We can solve $\dot{x}=v(x)$ to get $f_t(x(0))=x(t)$.  This gives $f_0=1_{X}$ and $f_t\sim f_0$ for any $t$.
+
+Locally, $f_t(x)=x+tv(x)+O(t^2)$.  Assume $v$ has non-degenerate zeroes. Then for any fixed point $x$, $x+tv(x)=x\Rightarrow v(x)=0$.  So for $|t|\ll 1$, we have that fixed points of $f_t$ are 0's of $v$.  By the Taylor expansion,
+$\frac{\partial f_t}{ \partial x}-\mbox{id} = t\cdot \frac{\partial v}{\partial x}, t>0\\
+$
+\[\Rightarrow \det\left(\frac{\partial f_t}{ \partial x} -\mbox{id}\right)=t^n \left(\frac{\partial v}{\partial x}\right)
+\Rightarrow  L(f_t)=\sum _{f_t(x)=x} \mbox{sgn} \det \left(\frac{\partial f_t}{\partial x} -1\right)  =\sum_{v(x)=0} \mbox{sgn}\det \left( \frac{\partial v}{\partial x}\right)  =\chi(X)
+\]
+
+
+\end{proof}
+
+%
+%2. Show that any compact n-dimensional manifold admits an immersion to
+%R2n.
+%
+%3. Show that a manifold admits a volume form if and only if it admits an
+%atlas with orientation-preserving transition functions.
+%
+%4. Show that the antipodal map f : S
+%n $\to$ Sn
+%, f(x) = -x is orientation
+%preserving if and only if n is odd. Conclude that the real projective space
+%RPn
+%is orientable if an only if n is odd.
+%
+%5. Consider the map f : R
+%2$\to$ R2
+%given by f(x; y) = (x + 1;-y). We say
+%that two points a, b $\in$ R2
+%are equivalent  if there exists n $\in$ Z so that
+%a = $f^n$(b).
+%Consider the quotient space $M=R2/\sim$. The natural
+%projection p : R2 $\to$ M defines a structure of a smooth manifold on M. The
+%manifold M is called the Mobius band. Show that M is non-orientable. Does
+%there exist an immersion of M to R2.
+%
+%6. Let $\pi$ : E $\to$ M be a vector bundle of rank k. Define the corresponding
+%determinant bundle p : det(E) $\to$ M as follows: its total space det(E) is
+%given by
+%det(E) = $\{(x,\omega) : x \in M, \omega\in\Omega^k(E_x)\}$
+%and the map p is the natural projection. Here Ex := $\pi^{-1}(x)$
+%$\Omega^k(E_x)$ is the linear space of all k-forms on Ex. Observe that det(E) is a
+%rank 1 bundle.
+%6.1. Define accurately the structure of a smooth vector bundle on det(E).
+%6.2. We say that the bundle p : E $\to$ M is orientable if the determinant
+%bundle is trivial. Show that a manifold M is orientable whenever det(TM)$\to$
+%M is trivial.
+%6.3. Show that a rank 1 bundle over a simply-connected manifold is neces-
+%sarily trivial. Conclude that every simply-connected manifold is orientable.
+%6.4. Classify (up to an isomorphism) rank 1 vector bundles over the circle
+%S1
+%6.5. Show that the total space of the non-orientable rank 1 bundle over S1
+%is di�eomorphic to the Mobius band.
+%7. Let M be a manifold of dimension m < n. Show that every smooth map
+%f : M $\to$ Sn
+%is homotopic to the constant map.
+%\\Homework 3.
+%1. Let f : S1= R/(2pZ) to R be a smooth map. Define maps g1and g2
+%from S1to R2by g1(t) = (cost,sint) and g2(t) = (-sint,cost). Show that
+%for almost all (s1,s2) to  R2 the map
+%fs: S1 to R2, t $\mapsto$ f(t) + s1g1(t) + s2g2(t)
+%is an immersion.
+%
+%2. For which r > 0 the sphere x2+ y2+ z2= r2 is transversal to the sphere
+%(x - 2)2+ y2+ z2= 1 in R3? Explain.
+
+3. Let p : E to M$^n$ be a vector bundle, f : N$^n$ to E be a smooth map
+transversal to all fibers (that is the sets of the form p$^{-1}$(x)). Show
+that p$\circ $ f : N to M is a submersion (since M and N have the same dimension,
+f is a submersion whenever it is an immersion).
+%
+%4. Complex manifolds and almost complex structures
+%4.1. Let E be a complex vector space. Given a basis e1,...,en in E over C,
+%define the basis e1,ie1,...,en,ien
+%of E over R. Show that the orientation determined by this
+%basis does not depend on the choice of e1,...,en. We shall refer to it as to the
+%complex orientation of E.
+%4.2. An complex structure J on a real vector space E is an endomorphism
+%J : E to E with J2= -1. Given such a J, show that (a + ib)v := av + bJv,
+%a,b in R, v in E defines a structure of a complex vector space on E (and
+%hence the complex orientation on E).
+%4.3. An almost complex structure J on a manifold M is a smooth family
+%Jx: TxM to TxM,  of complex structures on tangent spaces to M. By
+%4.2, it defines an orientation on M (how exactly?). A submanifold X subset M
+%is called J-holomorphic if J(TxX) = TxX for all x in X. Thus the restriction
+%of J to X is an almost complex structure on X and defines an orientation
+%1
+%on X. Show that if X,Y are two transversally intersecting J-holomorphic
+%submanifolds of M with
+%dimRX + dimRY = dimRM ,
+%the intersection index X $\circ $ Y (calculated with respect to complex orientations)
+%is necessarily non-negative.
+%4.4. A map f : Cn to Cn is called holomorphic if f*(i xi ) = if*( xi) for every
+%tangent vector xi to Cn. Show that for n = 1 this condition is equivalent to
+%the standard Cauchy-Riemann equations.
+%4.5. A complex atlas on a smooth manifold M is an atlas (Ua,fa), where
+%fa: Ua to Cn such that the transition functions are holomorphic. Such an
+%M is called a complex manifold. Given a chart (U,f) of a complex atlas,
+%define an almost complex structure J on M as follows. For x in U define
+%Jx: TxM to TxM by
+%Jx xi =$\phi_*^{-1}(i\phi_*\xi)$.
+%Show that J is well defined.
+%
+%5. Introduce the complex projective space CPn as the set of all complex lines
+%passing through the origin in Cn+1. This space (as a set) can be represented
+%as follows: We say that two vectors v and w in Cn+1$\backslash$ {0} are equivalent if
+%there exists a in C $\backslash$ {0} so that v = aw. With this language, CPnis just
+%the set of equivalence classes: the class [v] corresponds to the line passing
+%through v. The set CPnis naturally equipped with the quotient topology
+%coming from Cn+1 $\backslash$ {0}.
+%The following notation is standard (and called homogeneous coordinates):
+%[(z0,...,zn)] := [z0: ... : zn] .
+%The complex projective space carries a natural smooth structure as fol-
+%lows. For k = 0,...,n put
+%Uk= {[z0: ... : zn] in CPn s.t. zk != 0} .
+%Define a mapping fk: Uk to Cn by
+%fk([z0: ... : zn]) = (z0/zk,...,zk-1/zk ,zk+1/zk,...,zn/zk).
+%The charts (Uk,fk) are called the affine charts.
+%5.1. Show that the affine charts form a smooth atlas on CPnwhich is in fact
+%a complex atlas.
+5.2. Let S2 in R3 be the unit sphere. Show that
+$f : S2 \to CP1, (x1,x2,x3) to [1 - x3: x1+ ix2]$
+is a diffeomorphism.
+5.3. Calculate the self-intersection number CP1$\circ $CP1 of the projective line
+inside the projective plane CP2.
+5.4. Let p(z) = zm+am-1zm-1+...+a1z+a0be a polynomial with complex
+coefficients. Consider the corresponding homogeneous polynomial
+q(z,w) = zm+ am-1zm-1w + ... + a1zwm-1+ a0wm
+so that p(z) = q(z,1). Find the degree of the map
+g : CP1? CP1, [z0: z1] ?? [q(z0,z1) : zm
+1] .
+
+{\bf Homework 4}.
+%1. Let Mn
+%be a closed connected oriented manifold. Show that for every
+%d 2 N there exists a smooth map f : M to Sn with degf = d.
+
+2. Let a0,..., an be non-zero complex numbers. Consider a map fa : CP
+n to CPn
+[z0 : ... : zn] to [a0z0 : ... : anzn]
+Find all fixed points of fa. For which a all of them are non-degenerate? For
+such a, calculate their indices and find the Lefschetz number of fa. Apply
+this to the calculation of $\chi$(CPn)
+
+3. Consider the torus Tn = Rn/Zn
+Let A be a n x n matrix with integer .
+coeffcients. Calculate the degree and the Lefschetz number of a map
+fA : Tn to Tn,  x to Ax mod Zn
+
+4. Let U $\subset$ Rn
+be a compact domain (that is, a compact n-dimensional
+submanifold with boundary) with a smooth boundary M. De�ne the Gauss
+map
+GU : M to Sn-1; x $\to v(x)$ ;
+where v(x) is the outward Euclidean normal to M.
+4.1. Let V be a vector field on U which coincides with v on the boundary M
+and whose zeroes in U are non-degenerate. Show that $\sum_{v(x)=0} ind x(v) = deg(GU)$
+4.2. Let U be a tubular neighborhood
+Show that $\chi(M) = deg(GU)$.
+
+5. Prove that two maps f and g from S1
+to S1
+are homotopic if and only if
+they have the same degree.
+
+6. Let Mn
+be a closed connected oriented manifold, and let f : Sn to M be
+a map of degree 1. Show that M is simply connected.
+
+homework 5
+
+1. Let v be a vector �eld de�ned in a neighborhood U of 0 in R
+n
+so that
+v(0) = 0 and v(q) != 0 for all q in U -0 (the point 0 is called an isolated
+zero of v). Choose e > 0 so that the sphere S
+(n-1)$_e$
+of radius e centered at 0 is
+fully contained in U and put
+f$_e$
+: S$_e$ to S(n-1)$_1$
+by q to
+v(q)/$|v(q)|$
+
+Show that there exists I in Z and e > 0 so that deqf$_b$ = I for all 0 < b < e.
+Show that if v has a non-degenerate zero at 0, I coincides with the usual
+index: I = ind0(v). Hint: reduce the second part of the problem to the case
+when v(q) = Aq where A is an invertible matrix n � n, and use the polar
+decomposition.
+2. Let M be a connected manifold of dimension > 1. Let x1; :::; xN, y1; :::; yN
+be two collections of pair-wise distinct points on M. Show that there exists
+a di�eomorphism f : M ! M with yj = f(xj) for all j = 1; :::;N. See
+Guillemin-Pollack, Chapter 3, beginning of Section 6. Is the same result true
+for M = S
+1
+and N = 3? N = 4?
+3. Let M be a closed oriented connected manifold with $\chi$(M) = 0. Show
+that M admits a nowhere vanishing vector �eld. Hint: Start with any vector
+�eld v with non-degenerate zeroes. Reduce the problem to the case when all
+the zeroes of v are contained in a small ball B in M (use Problem 2). Use
+Problem 1 and a theorem proved in the class (which exactly?) in order to
+modify v in the interior of B to a desired vector �eld without zeroes
+
+\end{document} 

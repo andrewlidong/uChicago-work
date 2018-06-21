@@ -1,0 +1,30 @@
+Lab0: The Install Party
+
+Assignment submission will be through the git repository.  
+
+Haskell language report should be read at some point...
+Looking at code for commonly used modules another good idea...
+Recording yourself coding is a good and interesting idea...
+
+At some point you should dedicate yourself to learning vim.  For now we use sublime...  but vim is b.a.
+
+At some point we should get more familiar with command line.  
+
+SSH:
+ssh andrewdong@computername.cs.uchicago.edu
+(see) http://people.cs.uchicago.edu/~kauffman/techstaff/sshable-machines.txt
+
+after which you will be prompted for password.  
+
+in local machine run 
+
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -t rsa
+
+Screen:
+screen is a window manager that can be used through ssh.  
+
+screen -S cs161 #opens a screen sess
+screen -r cs161 #returns to a previous
+screen -list #lists the screens

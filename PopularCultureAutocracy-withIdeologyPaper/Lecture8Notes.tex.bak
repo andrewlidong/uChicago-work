@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE University of Chicago \par}
+	\vspace{1cm}
+	{\scshape\Large Popular Culture and Autocratic Governments\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Week 8 Seminar: Youth \par}
+	\vspace{1cm}
+	{\Large\itshape Andrew Dong\par}
+	\vspace{2cm}
+	
+	\vfill
+
+
+\begin{abstract}
+Beats of Freedom, film by Jacek Wozniak (excerpts) 
+Lesiakowski, Perzyna, and Toborek. Jarocin w obiektywie bezpieki. Instytut Pamięci Narodowej, 2004. (Images from album on punk rock festival with commentary)  
+
+
+Readings:
+Yurchak, Alexei. Everything Was Forever, Until It Was No More: The Last Soviet Generation: Princeton University Press, 2013 (Ch. 6) 
+Matar, Hisham. In The Country of Men: A Novel. New York: Dial Press, 2006. 
+Mannheim, Karl. “The Problem of Youth in Modern Society.” Diagnosis of Our Time. New York, 1944. 
+\end{abstract}
+
+\vfill
+
+% Bottom of the page
+	Professor~Lisa \textsc{Wedeen}
+	\vspace{5 mm}
+	\\{\large \today\par}
+\end{titlepage}
+
+\title{Popular Culture Art and Autocracy Week 7}
+\author{Andrew Dong}
+
+\maketitle
+
+
+\section{Introduction}
+
+Introduction
+
+
+
+
+\section{Conclusion}
+
+Concluding Thoughts
+
+\end{document}

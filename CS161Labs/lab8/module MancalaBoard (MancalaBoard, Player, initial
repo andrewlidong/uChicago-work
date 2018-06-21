@@ -1,0 +1,42 @@
+module MancalaBoard (MancalaBoard, Player, initial, getCurPlayer, getBoardData, numCaptured, move, allowedMoves, isAllowedMove. gameOver, winners) where
+
+import List -- for List.elemIndex
+import Maybe -- for List.elemIndex
+
+{-
+The stones on a Mancala board are simply recorded as a list of Ints.  The Ints come in the following order:
+1.  The boardSize pits belonging to PlayerA
+2.  The store belonging to PlayerA
+3.  The boardSize pits belonging to PlayerB
+4.  The store belonging to PlayerB
+-}
+
+data MancalaBoard = MancalaBoardImpl [Int] Player
+
+data Player = PlayerA | PlayerB deriving (Eq, Show)
+
+---- Functions/constants for Player ----
+
+allPlayers = [PlayerA, PlayerB]
+numPlayers = length allPlayers
+
+playerNum :: Player -> Int
+playerNum p = fromJust
+
+playerWithNum :: Int -> Player
+playerWithNum i = allPlayers !! i
+
+nextPlayer :: Player -> Player
+{- Find the player whose turn is next -}
+nextPlayer p = playerWithNum $ ((playerNum p) + 1) `mod` numPlayers
+
+---- Functions/constants for MancalaBoard ----
+
+{- number of pits on each side -}
+boardSize = 6
+{- number of stones in each pit -}
+startStones = 4
+
+{- the initial mancala board -}
+initial :: MancalaBoard
+initial = MancalaBoardImpl (concat $ take numPlayers (repeat boardSide)) Player A
